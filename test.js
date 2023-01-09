@@ -1,6 +1,136 @@
+const stl = `body {
+  margin: 10;
+  padding: 0;
+  box-sizing: border-box;
+}
+#gmi-registration-widget {
+  display: block;
+  border: 2px solid black;
+  width: 100%;
+  background-color: #FAFAFA;
+  margin: auto;
+  padding: 25px;
+}
+#heading-text {
+  font-family: 'Helvetica';
+  font-style: normal;
+  text-align: center;
+  font-weight: 700;
+  font-size: 20px;
+  color: #000000;
+}
+#sub-heading {
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 400;
+  text-align: center;
+  font-size: 14px;
+  color: #000000;
+}
+.input-container {
+  margin-bottom: 14px;
+  display: flex;
+  flex-flow: column;
+}
+.input-container svg {
+  position: absolute;
+  padding-left: 1em;
+  padding-top: 0.8em;
+}
+.input-container input {
+  border: none;
+  background: #FAFAFA;
+  border-radius: 5px;
+  font-size: 12px;
+  padding-left: 4em;
+  padding-top: 1em !important;
+  padding-bottom: 1em !important;
+}
+.coupon-option {
+  display: flex;
+  align-items: center;
+  font-size: 12px;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  margin-bottom: 14px;
+}
+.coupon-option span {
+  padding-left: 1em;
+}
+.button-container {
+  display: flex;
+  flex-flow: column;
+  margin-bottom: 14px;
+}
+.button-container button {
+  display: block;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.2);
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  line-height: 40px;
+  color: #FFFFFF;
+  border: none;
+}
+.coupon-tab-default {
+  display: none;
+}
+.coupon-tab {
+  display: flex;
+  flex-direction: column !important;
+  flex-flow: row;
+  margin-bottom: 14px;
+}
+.coupon-tab1 {
+  flex: 80%;
+}
+.coupon-tab1 svg {
+  position: absolute;
+  padding-top: 12.5px;
+  padding-left: 12.5px;
+}
+.coupon-tab1 input {
+  width: 95%;
+  border: none;
+  background: #FAFAFA;
+  padding-left: 3.5em;
+  padding-bottom: 13.5px;
+  padding-top: 13.5px;
+  font-size: 12px;
+  font-family: 'Helvetica';
+}
+.coupon-tab2 {
+  flex: 12%;
+}
+.coupon-tab2 button {
+  padding: 14.5px;
+  width: 100%;
+  font-family: 'Helvetica';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.2);
+  border: none;
+  color: #FFFFFF;
+}
+a {
+  text-decoration: none;
+  color: #000000;
+}
+.hiding-content {
+  display: none;
+}`;
+
 window.onload = (event) => {
   console.log('dom loaded =============', event);
   const window = event.target;
+  const style = window.createElement('style');
+  style.innerHTML = stl;
+  window.head.appendChild(style); 
   const ele = window.getElementById('gmi-widget-form');
   ele.innerHTML = `<div id="gmi-registration-widget">
   <p id="heading-text">Registrati</p>
