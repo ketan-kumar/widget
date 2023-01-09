@@ -1,5 +1,5 @@
-document.onload(() => {
+window.onload(() => {
   console.log('dom loaded =============');
-  const ele = document.getElementById('gmi-widget-form');
+  const ele = window.getElementById('gmi-widget-form');
   console.log('element -------------', ele);
 });
