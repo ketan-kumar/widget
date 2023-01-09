@@ -1,4 +1,5 @@
-window.onload = function () {
+window.onload = function (){
+  console.log("Entered here !!!!!S")
   document.getElementById('gmi-widget-form').innerHTML = `<div id="gmi-registration-widget">
         <p id="heading-text">Registrati</p>
         <p id="sub-heading">Inizia ora la prova gratuita</p>
@@ -142,3 +143,4 @@ function myFunc1(){
   console.log(data1,'data 1 value -----------')
 }
 }
+
