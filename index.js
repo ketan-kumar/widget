@@ -1,4 +1,5 @@
-document.getElementById('gmi-widget-form').innerHTML = `<div id="gmi-registration-widget">
+window.onload = function () {
+  document.getElementById('gmi-widget-form').innerHTML = `<div id="gmi-registration-widget">
         <p id="heading-text">Registrati</p>
         <p id="sub-heading">Inizia ora la prova gratuita</p>
         <form name="form1" action="#" onsubmit="submit()">
@@ -140,4 +141,4 @@ function myFunc1(){
   data1.innerHTML = `<button style="background-color:black;">ADD</button>`;
   console.log(data1,'data 1 value -----------')
 }
-
+}
