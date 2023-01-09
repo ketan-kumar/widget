@@ -140,3 +140,4 @@ function myFunc1(){
   data1.innerHTML = `<button style="background-color:black;">ADD</button>`;
   console.log(data1,'data 1 value -----------')
 }
+
