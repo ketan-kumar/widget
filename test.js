@@ -137,9 +137,18 @@ window.onload = (event) => {
   <p id="sub-heading">Inizia ora la prova gratuita</p>
   <form name="form1" action="#" onsubmit="submit()">
   <div class="input-container">
-  <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M1.9375 15.875C1.9375 15.875 0.625 15.875 0.625 14.5625C0.625 13.25 1.9375 9.3125 8.5 9.3125C15.0625 9.3125 16.375 13.25 16.375 14.5625C16.375 15.875 15.0625 15.875 15.0625 15.875H1.9375ZM8.5 8C9.54429 8 10.5458 7.58516 11.2842 6.84673C12.0227 6.10831 12.4375 5.10679 12.4375 4.0625C12.4375 3.01821 12.0227 2.01669 11.2842 1.27827C10.5458 0.539843 9.54429 0.125 8.5 0.125C7.45571 0.125 6.45419 0.539843 5.71577 1.27827C4.97734 2.01669 4.5625 3.01821 4.5625 4.0625C4.5625 5.10679 4.97734 6.10831 5.71577 6.84673C6.45419 7.58516 7.45571 8 8.5 8Z" fill="#CCCCCC"/>
-  </svg>                
+  <?xml version="1.0" encoding="iso-8859-1"?>
+  <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+  <svg height="800px" width="800px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+     viewBox="0 0 60.671 60.671" xml:space="preserve">
+  <g>
+    <g>
+      <ellipse style="fill:#010002;" cx="30.336" cy="12.097" rx="11.997" ry="12.097"/>
+      <path style="fill:#010002;" d="M35.64,30.079H25.031c-7.021,0-12.714,5.739-12.714,12.821v17.771h36.037V42.9
+        C48.354,35.818,42.661,30.079,35.64,30.079z"/>
+    </g>
+  </g>
+  </svg>              
   <input type="text" placeholder="Nome & cognome" id="name" onKeyup = "myFunc()" />
   </div>
   <div class="input-container">
