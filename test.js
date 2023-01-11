@@ -1,3 +1,4 @@
+import {couponFunction, handleButton, myFunc, couponDetails, closeFunc, couponCodeFunc,myFunc1} from './functions';
 const stl = `body {
   margin: 10;
   padding: 0;
