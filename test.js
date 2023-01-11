@@ -1,3 +1,4 @@
+import {couponFunction} from "./Functions";
 const stl = `body {
   margin: 10;
   padding: 0;
