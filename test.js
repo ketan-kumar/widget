@@ -245,7 +245,9 @@ window.onload = (event) => {
   window.head.appendChild(style); 
   const ele = window.getElementById('gmi-widget-form');
   ele.innerHTML = `<div id="gmi-registration-widget">
-  <p id="heading-text">Registrati</p>
+  <p id="heading-text"><svg version="1.1" id="square-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+  <path d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"/>
+</svg>Registrati</p>
   <p id="sub-heading">Inizia ora la prova gratuita</p>
   <form name="form1" action="#" onsubmit="submit()">
   <div class="input-container">
