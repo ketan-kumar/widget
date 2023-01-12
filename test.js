@@ -1,3 +1,4 @@
+let imageUrl ;
 const stl = `body {
   margin: 10;
   padding: 0;
@@ -123,9 +124,15 @@ a {
 }
 .hiding-content {
   display: none;
-}`;
+}
+.icon-image{
+    padding-left: 25px;
+    background: url(${imageUrl}) no-repeat left;
+    background-size: 20px;
+
+}
+`;
 let count = 1;
-let imageUrl ;
 function couponFunction() {
   console.log('entered ------------')
   count++;
@@ -191,7 +198,7 @@ const couponDetails = async () => {
   imageUrl = couponType.metadata.logo_uri;
   console.log(couponType, 'type of coupon ----')
   if(couponCode.length !== 0){
-  document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" >
+  document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1 icon-image" >
             <img src=${imageUrl} alt="logo-image">
             <input type='text' name='coupon' id='coupon' value=${couponCode} onKeyup=couponCodeFunc()></div>
         <div class="coupon-tab2" onClick="couponDetails()"><button id='add-button1'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
