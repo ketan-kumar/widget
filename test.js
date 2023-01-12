@@ -125,6 +125,7 @@ a {
   display: none;
 }`;
 let count = 1;
+let imageUrl ;
 function couponFunction() {
   console.log('entered ------------')
   count++;
@@ -187,13 +188,11 @@ const couponDetails = async () => {
   console.log(coupon, 'Coupon --------');
   const couponPrefix = couponCode.substring(0, 4);
   let couponType = coupon.find((coupon) => coupon.prefix.toLowerCase() === couponPrefix.toLowerCase());
+  imageUrl = couponType.metadata.logo_uri;
   console.log(couponType, 'type of coupon ----')
   if(couponCode.length !== 0){
   document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" >
-  <svg id='default-coupon' width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M14.5891 16C18.7602 16 10.1471 11.6154 12.3159 8.05249L14.2445 4.8841C15.3927 2.99775 15.0065 1.76231 13.0053 2.69614C11.7292 3.29163 10.3232 3.25296 9.00032 2.77012L1.92643 0.188157C1.58541 0.063684 1.28497 -0.0517761 0.95755 0.105013C-0.20942 0.663826 0.802598 2.30097 2.01408 2.75528L4 3.5C6.40603 4.40226 7.29998 6.54571 5.88926 8.69348C3.77758 11.9084 0.908861 16 1.41093 16H14.5891Z" fill="#CCCCCC"/>
-  </svg>
-  
+            <img src=${imageUrl} alt="logo-image">
             <input type='text' name='coupon' id='coupon' value=${couponCode} onKeyup=couponCodeFunc()></div>
         <div class="coupon-tab2" onClick="couponDetails()"><button id='add-button1'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
   document.getElementById('coupon-resp').innerHTML = `<div id='close-tab' style="display:flex;justify-content: space-between;">
