@@ -88,12 +88,12 @@ const stl = `body {
 .coupon-tab1 {
   flex: 80%;
 }
-.coupon-tab1 svg {
+.coupon-tab1 > svg {
   position: absolute;
   padding-top: 12.5px;
   padding-left: 1em;
 }
-.coupon-tab1 input {
+.coupon-tab1 > input {
   width: 95%;
   border: none;
   background: #FAFAFA;
@@ -131,10 +131,14 @@ function couponFunction() {
   if (count % 2 === 0) {
     console.log('entered here !!!!!!!!!')
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" >
-    
-<svg version="1.1" id="square-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
-  <path d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"/>
-</svg>
+    <div class="input-container">
+    <?xml version="1.0" encoding="iso-8859-1"?>
+    <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+    <svg version="1.1" id="square-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
+    <path d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"/>
+  </svg>
+    <input type="text" placeholder="Nome & cognome" id="name" onKeyup = "myFunc()" />
+    </div>
             <input type='text' name='coupon' id='coupon' onKeyup="myFunc1()">
             </div>
         <div class="coupon-tab2" onClick="couponDetails()"><button id=''add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
