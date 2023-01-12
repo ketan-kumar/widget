@@ -161,6 +161,7 @@ function couponFunction() {
     // <input type="text" placeholder="Nome & cognome" id="name" onKeyup = "myFunc()" />
     // </div>
     const url="./assets/square.png";
+    console.log(typeof url,'type of url ---');
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;">
     <div class="coupon-tab1" >
       <span class="icon select-business-icon" style="background-image: url(${url});">&nbsp;</span> 
@@ -211,7 +212,7 @@ const couponDetails = async () => {
   const couponPrefix = couponCode.substring(0, 4);
   let couponType = coupon.find((coupon) => coupon.prefix.toLowerCase() === couponPrefix.toLowerCase());
   const imageUrl = couponType.metadata.logo_uri;
-  console.log(couponType, 'type of coupon ----')
+  console.log(typeof imageUrl, 'type of imageurl ----')
   if(couponCode.length !== 0){
     // <img src=${imageUrl} alt="logo-image" id="coupon-image">
   document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" >
