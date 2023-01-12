@@ -145,10 +145,10 @@ function couponFunction() {
     // <input type="text" placeholder="Nome & cognome" id="name" onKeyup = "myFunc()" />
     // </div>
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;">
-    
     <div class="coupon-tab1" >
-    <svg version="1.1" id="square-15" xmlns="http://www.w3.org/2000/svg" width="15px" height="15px" viewBox="0 0 15 15">
-    <path d="M13,14H2c-0.5523,0-1-0.4477-1-1V2c0-0.5523,0.4477-1,1-1h11c0.5523,0,1,0.4477,1,1v11C14,13.5523,13.5523,14,13,14z"/>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M16 14V2C16 0.893333 15.3698 0 14.5891 0H1.41093C0.630218 0 0 0.893333 0 2V14C0 15.1067 0.630218 16 1.41093 16H14.5891C15.3698 16 16 15.1067 16 14Z" fill="#CCCCCC"/>
+    </svg>
   </svg><input type='text' name='coupon' id='coupon' onKeyup="myFunc1()" placeholder="coupon code">
     </div>
 
