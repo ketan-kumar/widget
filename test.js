@@ -91,7 +91,7 @@ const stl = `body {
 .coupon-tab1 svg {
   position: absolute;
   padding-top: 12.5px;
-  padding-left: 12.5px;
+  padding-left: 1em;
 }
 .coupon-tab1 input {
   width: 95%;
@@ -100,14 +100,14 @@ const stl = `body {
   padding-left: 3.5em;
   padding-bottom: 13.5px;
   padding-top: 13.5px;
-  font-size: 12px;
+  font-size: 14px;
   font-family: 'Helvetica';
 }
 .coupon-tab2 {
   flex: 12%;
 }
 .coupon-tab2 button {
-  padding: 14.5px;
+  padding: 10.5px;
   width: 100%;
   font-family: 'Helvetica';
   font-style: normal;
@@ -131,9 +131,7 @@ function couponFunction() {
   if (count % 2 === 0) {
     console.log('entered here !!!!!!!!!')
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" >
-            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M16 14V2C16 0.893333 15.3698 0 14.5891 0H1.41093C0.630218 0 0 0.893333 0 2V14C0 15.1067 0.630218 16 1.41093 16H14.5891C15.3698 16 16 15.1067 16 14Z" fill="#CCCCCC"/>
-            </svg>
+    <?xml version="1.0" encoding="utf-8"?><svg width="16px" height="16px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="122.883px" height="122.882px" viewBox="0 0 122.883 122.882" enable-background="new 0 0 122.883 122.882" xml:space="preserve"><g><path fill="rgba(0, 0, 0, 0.2)" fill-rule="evenodd" clip-rule="evenodd" d="M13.002,0h96.878c7.15,0,13.002,5.851,13.002,13.002v96.877 c0,7.151-5.852,13.002-13.002,13.002H13.002C5.851,122.882,0,117.031,0,109.88V13.002C0,5.851,5.851,0,13.002,0L13.002,0z"/></g></svg>
             <input type='text' name='coupon' id='coupon' onKeyup="myFunc1()"></div>
         <div class="coupon-tab2" onClick="couponDetails()"><button id=''add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
     document.getElementById('coupon-tab').style.marginBottom = '14px';
