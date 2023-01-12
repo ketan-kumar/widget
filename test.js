@@ -141,12 +141,6 @@ a {
 .hiding-content {
   display: none;
 }
-.icon-image{
-    padding-left: 25px;
-    background: url(${imageUrl}) no-repeat left;
-    background-size: 20px;
-
-}
 .coupon-image{
   position:absolute;
   width:25px;
@@ -220,7 +214,7 @@ const couponDetails = async () => {
   console.log(couponType, 'type of coupon ----')
   if(couponCode.length !== 0){
     // <img src=${imageUrl} alt="logo-image" id="coupon-image">
-  document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1 icon-image" >
+  document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" >
   <span class="icon select-business-icon" style="background-image: url(${imageUrl});">&nbsp;</span> 
             <input type='text' name='coupon' id='coupon' value=${couponCode} onKeyup=couponCodeFunc()></div>
         <div class="coupon-tab2" onClick="couponDetails()"><button id='add-button1'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
