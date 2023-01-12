@@ -131,6 +131,11 @@ a {
     background-size: 20px;
 
 }
+.coupon-image{
+  position:absolute;
+  width:25px;
+  height:25px;
+}
 `;
 let count = 1;
 function couponFunction() {
@@ -199,7 +204,7 @@ const couponDetails = async () => {
   console.log(couponType, 'type of coupon ----')
   if(couponCode.length !== 0){
   document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1 icon-image" >
-            <img src=${imageUrl} alt="logo-image">
+            <img src=${imageUrl} alt="logo-image" id="coupon-image">
             <input type='text' name='coupon' id='coupon' value=${couponCode} onKeyup=couponCodeFunc()></div>
         <div class="coupon-tab2" onClick="couponDetails()"><button id='add-button1'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
   document.getElementById('coupon-resp').innerHTML = `<div id='close-tab' style="display:flex;justify-content: space-between;">
