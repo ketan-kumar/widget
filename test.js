@@ -1,3 +1,4 @@
+// import "./assets/square.png"
 const stl = `body {
   margin: 10;
   padding: 0;
@@ -245,9 +246,7 @@ function couponCodeFunc(){
   console.log(couponCodeValue.length,'coupon code -----');
   if(couponCodeValue.length === 0){
     document.getElementById('default-coupon').innerHTML = ` 
-    <span class="icon select-business-icon" style="background-image: url( <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M16 14V2C16 0.893333 15.3698 0 14.5891 0H1.41093C0.630218 0 0 0.893333 0 2V14C0 15.1067 0.630218 16 1.41093 16H14.5891C15.3698 16 16 15.1067 16 14Z" fill="#CCCCCC"/>
-    </svg>);">&nbsp;</span> 
+    <span class="icon select-business-icon" style="background-image: url("./assets/square.png");">&nbsp;</span> 
     
    `;
     document.getElementById('coupon-resp').style.display = 'none'; 
