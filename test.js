@@ -162,7 +162,7 @@ function couponFunction() {
     // </div>
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;">
     <div class="coupon-tab1" >
-      <span class="icon select-business-icon" style="background-image: url("./assets/square.png");">&nbsp;</span> 
+      <span class="icon select-business-icon" style="background-image: url("https://gmi-prod-image.s3.eu-central-1.amazonaws.com/aboutus/lavinia-nocelli.jpeg");">&nbsp;</span> 
   <input type='text' name='coupon' id='coupon' onKeyup="myFunc1()" placeholder="coupon code">
     </div>
 
