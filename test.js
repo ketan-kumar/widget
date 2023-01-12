@@ -35,7 +35,7 @@ const stl = `body {
 .input-container svg {
   position: absolute;
   padding-left: 1em;
-  padding-top: 1em;
+  padding-top: 0.2em;
 }
 .input-container input {
   border: none;
@@ -43,8 +43,8 @@ const stl = `body {
   border-radius: 5px;
   font-size: 14px;
   padding-left: 4em;
-  padding-top: 2em !important;
-  padding-bottom: 2em !important;
+  padding-top: 1.5em !important;
+  padding-bottom: 1.5em !important;
 }
 .coupon-option {
   display: flex;
