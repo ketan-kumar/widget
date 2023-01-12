@@ -88,6 +88,7 @@ const stl = `body {
 }
 .coupon-tab1 {
   flex: 80%;
+
 }
 .coupon-tab1 > svg {
   position: absolute;
@@ -203,8 +204,9 @@ const couponDetails = async () => {
   imageUrl = couponType.metadata.logo_uri;
   console.log(couponType, 'type of coupon ----')
   if(couponCode.length !== 0){
+    // <img src=${imageUrl} alt="logo-image" id="coupon-image">
   document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1 icon-image" >
-            <img src=${imageUrl} alt="logo-image" id="coupon-image">
+  <span class="icon select-business-icon" style="background-image: url(${imageUrl});">&nbsp;</span> 
             <input type='text' name='coupon' id='coupon' value=${couponCode} onKeyup=couponCodeFunc()></div>
         <div class="coupon-tab2" onClick="couponDetails()"><button id='add-button1'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
   document.getElementById('coupon-resp').innerHTML = `<div id='close-tab' style="display:flex;justify-content: space-between;">
