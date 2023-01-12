@@ -6,7 +6,7 @@ const stl = `body {
 #gmi-registration-widget {
   display: block;
   border: 2px solid black;
-  width: fit-content;
+  max-width: 400px;
   background-color: white;
   margin: auto;
   padding: 25px;
