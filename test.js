@@ -1,4 +1,3 @@
-let imageUrl ;
 const stl = `body {
   margin: 10;
   padding: 0;
@@ -89,6 +88,7 @@ const stl = `body {
 .coupon-tab1 {
   flex: 80%;
   display:flex;
+  position:relative;
   align-items:center;
 
 }
@@ -102,6 +102,7 @@ const stl = `body {
     background-image: url(https://gmi-dev-image.s3.eu-central-1.amazonaws.com/coupon/vodafone.png);
     background-size: cover;
     height: 27px;
+    position:absolute;
 
 }
 .coupon-tab1 > svg {
@@ -215,7 +216,7 @@ const couponDetails = async () => {
   console.log(coupon, 'Coupon --------');
   const couponPrefix = couponCode.substring(0, 4);
   let couponType = coupon.find((coupon) => coupon.prefix.toLowerCase() === couponPrefix.toLowerCase());
-  imageUrl = couponType.metadata.logo_uri;
+  const imageUrl = couponType.metadata.logo_uri;
   console.log(couponType, 'type of coupon ----')
   if(couponCode.length !== 0){
     // <img src=${imageUrl} alt="logo-image" id="coupon-image">
