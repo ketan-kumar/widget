@@ -160,7 +160,7 @@ function couponFunction() {
     // </svg>
     // <input type="text" placeholder="Nome & cognome" id="name" onKeyup = "myFunc()" />
     // </div>
-    const url="./assets/square.png";
+    const url="/home/incaendo/work/gmi/widget/assets/square.png";
     console.log(typeof url,'type of url ---');
     // <span class="icon select-business-icon" style="background-image: url(${url});">&nbsp;</span> 
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;">
