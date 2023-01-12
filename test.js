@@ -88,6 +88,20 @@ const stl = `body {
 }
 .coupon-tab1 {
   flex: 80%;
+  display:flex;
+  align-items:center;
+
+}
+.coupon-tab1 > span {
+
+    width: 30px;
+    background-position: center;
+    /* padding: 19px; */
+    background-repeat: no-repeat;
+    display: inline-block;
+    background-image: url(https://gmi-dev-image.s3.eu-central-1.amazonaws.com/coupon/vodafone.png);
+    background-size: cover;
+    height: 27px;
 
 }
 .coupon-tab1 > svg {
