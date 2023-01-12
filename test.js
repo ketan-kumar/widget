@@ -162,9 +162,10 @@ function couponFunction() {
     // </div>
     const url="./assets/square.png";
     console.log(typeof url,'type of url ---');
+    // <span class="icon select-business-icon" style="background-image: url(${url});">&nbsp;</span> 
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;">
     <div class="coupon-tab1" >
-      <span class="icon select-business-icon" style="background-image: url(${url});">&nbsp;</span> 
+    <img src=${url}>
   <input type='text' name='coupon' id='coupon' onKeyup="myFunc1()" placeholder="coupon code">
     </div>
 
