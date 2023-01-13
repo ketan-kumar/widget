@@ -180,10 +180,35 @@ function couponFunction() {
 }
 function handleButton() {
   console.log('Entered here --------');
-  const allInput = document.getElementsByTagName('input');
-  // console.log(allInput, "Input tags --------");
+  let campaign = '';
+  const params = window.location.search.substr(1).split('&');
+  for (const param of params) {
+    const splitParam = param.split('=');
+    if (typeof splitParam[0] !== 'undefined' &&
+      splitParam[0] === 'utm_campaign' && typeof splitParam[1] !== 'undefined') {
+      campaign = splitParam[1];
+    }
+  }
+  const name = document.getElementById('name').value;
+  const email = document.getElementById('email').value;
+  const surname = document.getElementById('surname').value;
+
   console.log(document.getElementById('name').value)
   console.log(document.getElementById('email').value)
+    const userData ={
+        'action':'signup',
+        'email' : email,
+        'nicename' : name,
+        'surName': surname,
+        'campaign': campaign
+    }
+    const response = await fetch("http://localhost:4030/auth", {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(userData)
+    });
 }
 function myFunc() {
   const name = document.getElementById('name').value;
