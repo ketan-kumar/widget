@@ -255,14 +255,60 @@ async function handleButton() {
       </div>`
     }
 }
+function ValidateEmail(input) {
+
+  var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  if (input.match(validRegex)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+function emailFunc(){
+  const name = document.getElementById('name').value;
+  const inputEmail = document.getElementById('email').value;
+  const email = ValidateEmail(inputEmail);
+  console.log(email,'valid email');
+  console.log(name.length, email.length, 'name and email --------');
+  if (name.length & inputEmail.length & email) {
+    console.log('Entered here -------')
+    const elem = document.getElementById('free-trial')
+    document.getElementById('free-trial').style.backgroundColor = 'black';
+  }
+  if(inputEmail === ''){
+    document.getElementById('hiding-email-msg').style.display = 'block';
+  }
+  if(inputEmail.length){
+    document.getElementById('hiding-email-msg').style.display = 'none';
+  }
+  if(!email){
+    document.getElementById('hiding-email-msg').innerHTML = `please enter valid email address`;
+    document.getElementById('hiding-email-msg').style.display = 'block';
+
+  }
+  if(email){
+    document.getElementById('hiding-email-msg').style.display = 'none';
+
+  }
+  if (name === '' || inputEmail === '') {
+    document.getElementById('free-trial').style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+  }
+}
 function myFunc() {
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
-  console.log(name, email, 'name and email --------');
+  console.log(name.length, email.length, 'name and email --------');
   if (name.length & email.length) {
     console.log('Entered here -------')
     const elem = document.getElementById('free-trial')
     document.getElementById('free-trial').style.backgroundColor = 'black';
+  }
+  if(name === ''){
+    document.getElementById('hiding-name-msg').style.display = 'block';
+  }
+  if(name.length){
+    document.getElementById('hiding-name-msg').style.display = 'none';
   }
   if (name === '' || email === '') {
     document.getElementById('free-trial').style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
@@ -351,21 +397,27 @@ window.onload = (event) => {
   <p id="sub-heading">Inizia ora la prova gratuita</p>
   <form name="form1" action="#" onsubmit="submit()">
   <div class="input-container">
-  <?xml version="1.0" encoding="iso-8859-1"?>
-  <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="35px" viewBox="0 0 24 24"><g data-name="Layer 2"><path fill="rgba(0, 0, 0, 0.2)" d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm6 10a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z" data-name="person"/></g></svg>            
-  <input type="text" placeholder="Nome & cognome" id="name" onKeyup = "myFunc()" />
+  <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1.9375 15.875C1.9375 15.875 0.625 15.875 0.625 14.5625C0.625 13.25 1.9375 9.3125 8.5 9.3125C15.0625 9.3125 16.375 13.25 16.375 14.5625C16.375 15.875 15.0625 15.875 15.0625 15.875H1.9375ZM8.5 8C9.54429 8 10.5458 7.58516 11.2842 6.84673C12.0227 6.10831 12.4375 5.10679 12.4375 4.0625C12.4375 3.01821 12.0227 2.01669 11.2842 1.27827C10.5458 0.539843 9.54429 0.125 8.5 0.125C7.45571 0.125 6.45419 0.539843 5.71577 1.27827C4.97734 2.01669 4.5625 3.01821 4.5625 4.0625C4.5625 5.10679 4.97734 6.10831 5.71577 6.84673C6.45419 7.58516 7.45571 8 8.5 8Z" fill="#CCCCCC"/>
+  </svg>                
+  <input type="text" placeholder="Nome" id="name" onKeyup = "myFunc()" />
+  </div>
+  <div id="hiding-name-msg" style="display:none;margin-bottom: 1em;
+  color: red;">please enter your name</div>
+  <div class="input-container">
+  <svg width="17" height="16" viewBox="0 0 17 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M1.9375 15.875C1.9375 15.875 0.625 15.875 0.625 14.5625C0.625 13.25 1.9375 9.3125 8.5 9.3125C15.0625 9.3125 16.375 13.25 16.375 14.5625C16.375 15.875 15.0625 15.875 15.0625 15.875H1.9375ZM8.5 8C9.54429 8 10.5458 7.58516 11.2842 6.84673C12.0227 6.10831 12.4375 5.10679 12.4375 4.0625C12.4375 3.01821 12.0227 2.01669 11.2842 1.27827C10.5458 0.539843 9.54429 0.125 8.5 0.125C7.45571 0.125 6.45419 0.539843 5.71577 1.27827C4.97734 2.01669 4.5625 3.01821 4.5625 4.0625C4.5625 5.10679 4.97734 6.10831 5.71577 6.84673C6.45419 7.58516 7.45571 8 8.5 8Z" fill="#CCCCCC"/>
+  </svg>                
+  <input type="text" placeholder="cognome" id="surname" onKeyup = "myFunc()" />
   </div>
   <div class="input-container">
-  <?xml version="1.0" encoding="iso-8859-1"?>
-  <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
-  <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="35px" viewBox="0 0 24 24"><g data-name="Layer 2"><path fill="rgba(0, 0, 0, 0.2)" d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm6 10a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z" data-name="person"/></g></svg>            
-  <input type="text" placeholder="Cognome (optional)" id="surname" />
+  <svg width="18" height="12" viewBox="0 0 18 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M18 10.5V1.5C18 0.67 17.33 0 16.5 0H2.48999C1.65999 0 0.98999 0.67 0.98999 1.5V10.5C0.98999 11.33 1.65999 12 2.48999 12H16.5C17.33 12 18 11.33 18 10.5ZM16.69 1.39C17.02 1.72 16.84 2.06 16.66 2.23L12.6 5.95L16.5 10.01C16.62 10.15 16.7 10.37 16.56 10.52C16.43 10.68 16.13 10.67 16 10.57L11.63 6.84L9.48999 8.79L7.35999 6.84L2.98999 10.57C2.85999 10.67 2.55999 10.68 2.42999 10.52C2.28999 10.37 2.36999 10.15 2.48999 10.01L6.38999 5.95L2.32999 2.23C2.14999 2.06 1.96999 1.72 2.29999 1.39C2.62999 1.06 2.96999 1.22 3.24999 1.46L9.48999 6.5L15.74 1.46C16.02 1.22 16.36 1.06 16.69 1.39Z" fill="#CCCCCC"/>
+  </svg>                
+  <input type="text" placeholder="Email" id="email" onKeyup="emailFunc()" />
   </div>
-  <div class="input-container">
-  <?xml version="1.0" ?><!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg width="40px" height="35px" id="Layer_1" style="enable-background:new 0 0 512 512;" version="1.1" viewBox="0 0 512 512"  xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path fill="rgba(0, 0, 0, 0.2)" d="M67,148.7c11,5.8,163.8,89.1,169.5,92.1c5.7,3,11.5,4.4,20.5,4.4c9,0,14.8-1.4,20.5-4.4c5.7-3,158.5-86.3,169.5-92.1   c4.1-2.1,11-5.9,12.5-10.2c2.6-7.6-0.2-10.5-11.3-10.5H257H65.8c-11.1,0-13.9,3-11.3,10.5C56,142.9,62.9,146.6,67,148.7z"/><path fill="rgba(0, 0, 0, 0.2)" d="M455.7,153.2c-8.2,4.2-81.8,56.6-130.5,88.1l82.2,92.5c2,2,2.9,4.4,1.8,5.6c-1.2,1.1-3.8,0.5-5.9-1.4l-98.6-83.2   c-14.9,9.6-25.4,16.2-27.2,17.2c-7.7,3.9-13.1,4.4-20.5,4.4c-7.4,0-12.8-0.5-20.5-4.4c-1.9-1-12.3-7.6-27.2-17.2l-98.6,83.2   c-2,2-4.7,2.6-5.9,1.4c-1.2-1.1-0.3-3.6,1.7-5.6l82.1-92.5c-48.7-31.5-123.1-83.9-131.3-88.1c-8.8-4.5-9.3,0.8-9.3,4.9   c0,4.1,0,205,0,205c0,9.3,13.7,20.9,23.5,20.9H257h185.5c9.8,0,21.5-11.7,21.5-20.9c0,0,0-201,0-205   C464,153.9,464.6,148.7,455.7,153.2z"/></g></svg>    
-  <input type="text" placeholder="Email" id="email" onKeyup="myFunc()" />
-  </div>
+  <div id='hiding-email-msg' style="display:none;margin-bottom: 1em;
+  color: red;">please enter your email</div>
   </form>
   <div class="coupon-option" onClick="couponFunction()">
   <svg id="add-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
@@ -383,7 +435,7 @@ window.onload = (event) => {
   </div>
 
   <div id="coupon-code">
-  <div class="button-container" onClick="handleButton()"><button id='free-trial'>INIZIA ORA</button></div>
+  <div class="button-container" onclick="handleButton()"><button id='free-trial'>INIZIA ORA</button></div>
   <div>Sei già registrato? <a href='http://localhost:3000/login'><b>Fai il login qui</b></a></div>
   </div>`;
   console.log('element -------------', ele);
