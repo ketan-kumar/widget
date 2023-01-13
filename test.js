@@ -244,7 +244,13 @@ async function handleButton() {
       },
       body: JSON.stringify(userData)
     }).then(res => res.json()).then(result => {
-     apiResp = result.msg;
+      const hasKey = 'msg' in result;
+      if(hasKey) {
+        
+        apiResp = result.msg;
+      }else {
+        apiResp = result.message;
+      }
       console.log(result ,'result ------')
     });
     if(apiResp.toLowerCase() === "success"){
@@ -253,6 +259,8 @@ async function handleButton() {
       <p class="email-login-msg">Non hai ricevuto l’email? Inviala di nuovo o Aggiorna il tuo indirizzo email</p>
       <p class="email-login-msg">Sei già registrato? Fai il login qui</p>
       </div>`
+    } else{
+      document.getElementById('api-error-msg').innerHTML = `* ${apiResp}`;
     }
 }
 function ValidateEmail(input) {
@@ -270,7 +278,7 @@ function emailFunc(){
   const inputEmail = document.getElementById('email').value;
   const email = ValidateEmail(inputEmail);
   console.log(email,'valid email');
-  console.log(name.length, email.length, 'name and email --------');
+  console.log(name.length, inputEmail, 'name and email --------');
   if(inputEmail === ''){
     document.getElementById('hiding-email-msg').style.display = 'block';
   }
@@ -290,7 +298,7 @@ function emailFunc(){
     document.getElementById('free-trial').style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
   }
   if (name.length & inputEmail.length & email) {
-    console.log('Entered here -------')
+    console.log('Entered here in  -------')
     const elem = document.getElementById('free-trial')
     document.getElementById('free-trial').style.backgroundColor = 'black';
   }
@@ -434,6 +442,7 @@ window.onload = (event) => {
 
   <div id="coupon-code">
   <div class="button-container" onclick="handleButton()"><button id='free-trial'>INIZIA ORA</button></div>
+  <div id="api-error-msg" style="color: red; margin-bottom: 1em;"></div>
   <div>Sei già registrato? <a href='http://localhost:3000/login'><b>Fai il login qui</b></a></div>
   </div>`;
   console.log('element -------------', ele);
