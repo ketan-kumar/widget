@@ -182,6 +182,10 @@ function couponFunction() {
     // </svg>
     // <input type="text" placeholder="Nome & cognome" id="name" onKeyup = "myFunc()" />
     // </div>
+    document.getElementById('add-icon').innerHTML = `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM3 5C2.44772 5 2 5.44772 2 6C2 6.55228 2.44772 7 3 7H9C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5H3Z" fill="black"/>
+    </svg>
+    `;
     const url="/home/incaendo/work/gmi/widget/assets/square.png";
     console.log(typeof url,'type of url ---');
     // <span class="icon select-business-icon" style="background-image: url(${url});">&nbsp;</span> 
@@ -355,7 +359,7 @@ window.onload = (event) => {
   </div>
   </form>
   <div class="coupon-option" onClick="couponFunction()">
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg id="add-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <rect width="16" height="16" fill="url(#pattern0)"/>
   <defs>
   <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
