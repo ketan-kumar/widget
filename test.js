@@ -271,11 +271,6 @@ function emailFunc(){
   const email = ValidateEmail(inputEmail);
   console.log(email,'valid email');
   console.log(name.length, email.length, 'name and email --------');
-  if (name.length & inputEmail.length & email) {
-    console.log('Entered here -------')
-    const elem = document.getElementById('free-trial')
-    document.getElementById('free-trial').style.backgroundColor = 'black';
-  }
   if(inputEmail === ''){
     document.getElementById('hiding-email-msg').style.display = 'block';
   }
@@ -285,14 +280,19 @@ function emailFunc(){
   if(inputEmail.length && !email){
     document.getElementById('hiding-email-msg').innerHTML = `* please enter valid email address`;
     document.getElementById('hiding-email-msg').style.display = 'block';
-
+    
   }
   if(email){
     document.getElementById('hiding-email-msg').style.display = 'none';
-
+    
   }
   if (name === '' || inputEmail === '') {
     document.getElementById('free-trial').style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
+  }
+  if (name.length & inputEmail.length & email) {
+    console.log('Entered here -------')
+    const elem = document.getElementById('free-trial')
+    document.getElementById('free-trial').style.backgroundColor = 'black';
   }
 }
 function myFunc() {
