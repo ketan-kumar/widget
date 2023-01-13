@@ -178,7 +178,7 @@ function couponFunction() {
     document.getElementById('coupon-tab').style.marginBottom = '0px';
   }
 }
-function handleButton() {
+async function handleButton() {
   console.log('Entered here --------');
   let campaign = '';
   const params = window.location.search.substr(1).split('&');
