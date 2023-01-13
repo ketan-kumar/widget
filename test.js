@@ -192,7 +192,7 @@ async function handleButton() {
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
   const surname = document.getElementById('surname').value;
-
+  let apiResp; 
   console.log(document.getElementById('name').value)
   console.log(document.getElementById('email').value)
     const userData ={
@@ -202,13 +202,23 @@ async function handleButton() {
         'surName': surname,
         'campaign': campaign
     }
-    const response = await fetch("http://localhost:4030/auth", {
+    const response = await fetch("https://api.dev.goodmorningitalia.it/auth", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(userData)
+    }).then(res => res.json()).then(result => {
+     apiResp = result.msg;
+      console.log(result ,'result ------')
     });
+    if(apiResp.toLowerCase() === "success"){
+      document.getElementById('gmi-registration-widget').innerHTML = `<div><h2>Controlla la tua email</h2>
+      <p>Completa la registrazione verificando il tuo profilo dalla email che ti abbiamo inviato a  <b>youremail@gmail.com</b>.</p>
+      <p>Non hai ricevuto l’email? Inviala di nuovo o Aggiorna il tuo indirizzo email</p>
+      <p>Sei già registrato? Fai il login qui</p>
+      </div>`
+    }
 }
 function myFunc() {
   const name = document.getElementById('name').value;
