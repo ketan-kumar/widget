@@ -147,7 +147,29 @@ a {
   width:25px;
   height:25px;
 }
+#email-msg p {
+  font-family: 'Helvetica';
+  font-style: normal;
+  
+}
+#email-heading{
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 40px;
+} 
+#email-resubmit{
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 21px;
+}
+.email-login-msg{
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 40px;
+}
 `;
+// font-style: normal;
+// font-family: 'Helvetica';
 let count = 1;
 function couponFunction() {
   console.log('entered ------------')
@@ -213,10 +235,10 @@ async function handleButton() {
       console.log(result ,'result ------')
     });
     if(apiResp.toLowerCase() === "success"){
-      document.getElementById('gmi-registration-widget').innerHTML = `<div><h2>Controlla la tua email</h2>
-      <p>Completa la registrazione verificando il tuo profilo dalla email che ti abbiamo inviato a  <b>youremail@gmail.com</b>.</p>
-      <p>Non hai ricevuto l’email? Inviala di nuovo o Aggiorna il tuo indirizzo email</p>
-      <p>Sei già registrato? Fai il login qui</p>
+      document.getElementById('gmi-registration-widget').innerHTML = `<div id="email-msg"><p id='email-heading'>Controlla la tua email</p>
+      <p id="email-resubmit">Completa la registrazione verificando il tuo profilo dalla email che ti abbiamo inviato a  <b>youremail@gmail.com</b>.</p>
+      <p class="email-login-msg">Non hai ricevuto l’email? Inviala di nuovo o Aggiorna il tuo indirizzo email</p>
+      <p class="email-login-msg">Sei già registrato? Fai il login qui</p>
       </div>`
     }
 }
