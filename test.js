@@ -282,7 +282,7 @@ function emailFunc(){
   if(inputEmail.length){
     document.getElementById('hiding-email-msg').style.display = 'none';
   }
-  if(!email){
+  if(inputEmail.length && !email){
     document.getElementById('hiding-email-msg').innerHTML = `* please enter valid email address`;
     document.getElementById('hiding-email-msg').style.display = 'block';
 
