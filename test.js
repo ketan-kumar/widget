@@ -259,7 +259,11 @@ async function handleButton() {
       <p class="email-login-msg">Non hai ricevuto l’email? Inviala di nuovo o Aggiorna il tuo indirizzo email</p>
       <p class="email-login-msg">Sei già registrato? Fai il login qui</p>
       </div>`
-    } else{
+    } 
+    if(apiResp.toLowerCase() === 'undefined'){
+      document.getElementById('api-error-msg').innerHTML = ``;
+    }
+    else{
       document.getElementById('api-error-msg').innerHTML = `* ${apiResp}`;
     }
 }
