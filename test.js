@@ -1,4 +1,3 @@
-// import "./assets/square.png"
 const stl = `body {
   margin: 10;
   padding: 0;
@@ -167,19 +166,12 @@ a {
   font-weight: 400;
   font-size: 12px;
   line-height: 40px;
-}
-`;
-// font-style: normal;
-// font-family: 'Helvetica';
+}`;
 let count = 1;
 let name;
 let email;
 let surname;
 function updateEmail(){
-  console.log(name, email, surname,'Name email surname')
-  //  name = document.getElementById('name').value;
-  //  email = document.getElementById('email').value;
-  //  surname = document.getElementById('surname').value;
   document.getElementById('gmi-registration-widget').innerHTML = `<p id="heading-text">Registrati</p>
   <p id="sub-heading">Inizia ora la prova gratuita</p>
   <form name="form1" action="#" onsubmit="submit()">
@@ -224,28 +216,14 @@ function updateEmail(){
   <div id="api-error-msg" style="color: red; margin-bottom: 1em;"></div>
   <div>Sei già registrato? <a href='https://app.dev.goodmorningitalia.it/login'><b>Fai il login qui</b></a></div>
   </div>`;
-  // console.log(document.getElementById('gmi-registration-widget'))
 }
 function couponFunction() {
-  console.log('entered ------------')
   count++;
   if (count % 2 === 0) {
-    console.log('entered here !!!!!!!!!')
-    // <div class="input-container">
-    // <svg width="16" height="16" viewBox="0 0 16 16" fill="red" xmlns="http://www.w3.org/2000/svg">
-    // <path d="M16 14V2C16 0.893333 15.3698 0 14.5891 0H1.41093C0.630218 0 0 0.893333 0 2V14C0 15.1067 0.630218 16 1.41093 16H14.5891C15.3698 16 16 15.1067 16 14Z" fill="#CCCCCC"/>
-    // </svg>
-    // <input type="text" placeholder="Nome & cognome" id="name" onKeyup = "myFunc()" />
-    // </div>
-    // <img src=${url}>
     document.getElementById('add-icon').innerHTML = `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM3 5C2.44772 5 2 5.44772 2 6C2 6.55228 2.44772 7 3 7H9C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5H3Z" fill="black"/>
     </svg>
     `  ;
-    const url="https://gmi-dev-image.s3.eu-central-1.amazonaws.com/business/1582807356954-logo.png";
-    console.log(url,'url ------')
-    console.log(typeof url,'type of url ---');
-    // <span class="icon select-business-icon" style="background-image: url(${url});">&nbsp;</span> 
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" style="position: relative;" >
     <div style="
       background-color: #CCCCCC;              ;
@@ -274,7 +252,6 @@ function couponFunction() {
   }
 }
 async function handleButton() {
-  console.log('Entered here --------');
   let campaign = '';
   const params = window.location.search.substr(1).split('&');
   for (const param of params) {
@@ -311,7 +288,6 @@ async function handleButton() {
       }else {
         apiResp = result.message;
       }
-      console.log(result ,'result ------')
     });
     if(apiResp && apiResp.toLowerCase() === "success"){
       document.getElementById('gmi-registration-widget').innerHTML = `<div><h2>Controlla la tua email</h2>
@@ -341,8 +317,6 @@ function emailFunc(){
   const name = document.getElementById('name').value;
   const inputEmail = document.getElementById('email').value;
   const email = ValidateEmail(inputEmail);
-  console.log(email,'valid email');
-  console.log(name.length, inputEmail, 'name and email --------');
   if(inputEmail === ''){
     document.getElementById('hiding-email-msg').style.display = 'block';
   }
@@ -362,7 +336,6 @@ function emailFunc(){
     document.getElementById('free-trial').style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
   }
   if (name.length && inputEmail.length && email) {
-    console.log('Entered here in  -------')
     const elem = document.getElementById('free-trial')
     document.getElementById('free-trial').style.backgroundColor = 'black';
   }
@@ -370,9 +343,7 @@ function emailFunc(){
 function myFunc() {
   const name = document.getElementById('name').value;
   const email = document.getElementById('email').value;
-  console.log(name.length, email.length, 'name and email --------');
   if (name.length & email.length) {
-    console.log('Entered here -------')
     const elem = document.getElementById('free-trial')
     document.getElementById('free-trial').style.backgroundColor = 'black';
   }
@@ -385,26 +356,16 @@ function myFunc() {
   if (name === '' || email === '') {
     document.getElementById('free-trial').style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
   }
-  console.log(document.getElementById('name').value)
-  console.log(document.getElementById('email').value)
 }
-// TESTTQRuwyac
-
 const couponDetails = async () => {
   const couponCode = document.getElementById('coupon').value;
-  // couponCode.length &&document.getElementById('coupon-tab2').style.backgroundColor = 'red';
-  console.log(couponCode,'coupon code -----')
   const response = await fetch('http://localhost:4030/coupon-types?$limit=50');
   const myJson = await response.json(); //extract JSON from the http response
   const coupon = myJson.data;
-  console.log(myJson, 'Json value ------');
-  console.log(coupon, 'Coupon --------');
   const couponPrefix = couponCode.substring(0, 4);
   let couponType = coupon.find((coupon) => coupon.prefix.toLowerCase() === couponPrefix.toLowerCase());
   const imageUrl = couponType.metadata.logo_uri;
-  console.log(typeof imageUrl, 'type of imageurl ----')
   if(couponCode.length !== 0){
-    // <img src=${imageUrl} alt="logo-image" id="coupon-image">
   document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" >
   <span class="icon select-business-icon" style="background-image: url(${imageUrl});">&nbsp;&nbsp;&nbsp;&nbsp;</span> 
             <input type='text' name='coupon' id='coupon' value=${couponCode} onKeyup=couponCodeFunc()></div>
@@ -417,14 +378,10 @@ const couponDetails = async () => {
 
 }
 function emailClickFunc () {
-  console.log("Entered here in email click func");
   document.getElementById('api-error-msg').innerHTML= ``;
-  console.log(document.getElementById('api-error-msg').innerHTML);
 }
 const closeFunc = () => {
-  console.log('Entered in close function-------');
   const couponCode = document.getElementById('coupon').value;
-  console.log(couponCode,'coupon code -----')
   document.getElementById('close-tab').style.display = 'none';
   if(couponCode !== ""){
      document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" style="position:relative">
@@ -435,28 +392,19 @@ const closeFunc = () => {
       width: 15px;
       height: 15px;
       margin-top: 0.1em;"></div>
-  <input type='text' name='coupon' id='coupon' value=${couponCode}></div>
-<div class="coupon-tab2" onClick="couponDetails()" style="background-color:black;"><button>ADD</button></div></div>`;
-  }else {
-    document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" style="position:relative">
-    <div style="
-        background-color: #CCCCCC;              ;
-        position: absolute;
-        left: 1.1em;
-        width: 15px;
-        height: 15px;
-        margin-top: 0.1em;"></div>
-    <input type='text' name='coupon' id='coupon' value=${couponCode}></div>
-  <div class="coupon-tab2" onClick="couponDetails()" style="background-color:#CCCCCC;"><button>ADD</button></div></div>`
+  <input type='text' name='coupon' id='coupon' value=${couponCode} onclick="couponFunction1()"></div>
+<div class="coupon-tab2" id="add-button" onClick="couponDetails()" style="background-color:black;"><button>ADD</button></div></div>`;
   }
-
-// document.getElementById('coupon-tab').style.marginBotground-color:'tom = '14px';
   
 }
-
+function couponFunction1(){
+  const couponLength = document.getElementById('coupon').value;
+  if(couponLength !== ""){
+    document.getElementById('add-button')
+  }
+}
 function couponCodeFunc(){
   const couponCodeValue = document.getElementById('coupon').value;
-  console.log(couponCodeValue.length,'coupon code -----');
   if(couponCodeValue.length === 0){
     document.getElementById('default-coupon').innerHTML = ` 
     <span class="icon select-business-icon" style="background-image: url("./assets/square.png");">&nbsp;</span> 
@@ -470,19 +418,10 @@ function couponCodeFunc(){
   }
 }
 function myFunc1(){
-  console.log("Entered in button function --------");
   const data1 = document.getElementById('coupon-button');
   data1.innerHTML = `<button style="background-color:black;">ADD</button>`;
-  // document.getElementById('add-button2').style.backgroundColor = 'black';
-  console.log(data1,'data 1 value -----------')
-  // setTimeout(() => {
-  //   const data = document.getElementById('add-button1');
-  //   console.log(data,'data ------')
-    
-  // }, 2000);
 }
 window.onload = (event) => {
-  console.log('dom loaded =============', event);
   const window = event.target;
   const style = window.createElement('style');
   style.innerHTML = stl;
@@ -533,5 +472,4 @@ window.onload = (event) => {
   <div id="api-error-msg" style="color: red; margin-bottom: 1em;"></div>
   <div>Sei già registrato? <a href='https://app.dev.goodmorningitalia.it/login'><b>Fai il login qui</b></a></div>
   </div>`;
-  console.log('element -------------', ele);
 };
