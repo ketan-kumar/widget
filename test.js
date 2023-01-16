@@ -388,7 +388,7 @@ function myFunc() {
 
 const couponDetails = async () => {
   const couponCode = document.getElementById('coupon').value;
-  couponCode.length &&document.getElementById('coupon-tab2').style.backgroundColor = 'red';
+  // couponCode.length &&document.getElementById('coupon-tab2').style.backgroundColor = 'red';
   console.log(couponCode,'coupon code -----')
   const response = await fetch('http://localhost:4030/coupon-types?$limit=50');
   const myJson = await response.json(); //extract JSON from the http response
