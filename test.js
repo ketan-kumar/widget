@@ -245,7 +245,7 @@ function couponFunction() {
     // <span class="icon select-business-icon" style="background-image: url(${url});">&nbsp;</span> 
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" style="position: relative;" >
     <div width='15px' height="16px" style="
-      background-color: background: #CCCCCC;              ;
+      background-color: #CCCCCC;              ;
       position: absolute;
       left: 0;
       width: 15px;
