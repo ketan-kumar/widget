@@ -279,9 +279,9 @@ async function handleButton() {
       campaign = splitParam[1];
     }
   }
-  const name = document.getElementById('name').value;
-  const email = document.getElementById('email').value;
-  const surname = document.getElementById('surname').value;
+   name = document.getElementById('name').value;
+   email = document.getElementById('email').value;
+   surname = document.getElementById('surname').value;
   let apiResp; 
   console.log(document.getElementById('name').value)
   console.log(document.getElementById('email').value)
