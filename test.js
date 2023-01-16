@@ -152,6 +152,9 @@ a {
   font-style: normal;
   
 }
+#close-icon{
+  margin-top:0.2em;
+}
 #email-heading{
   font-weight: 700;
   font-size: 20px;
