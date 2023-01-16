@@ -251,7 +251,7 @@ function couponFunction() {
       width: 15px;
       height: 15px;
       margin-top: 0.5em;"></div>
-
+      <input type='text' name='coupon' id='coupon' onKeyup=myFunc1()></div>
         <div class="coupon-tab2" id='coupon-button' onClick="couponDetails()"><button id=''add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
     document.getElementById('coupon-tab').style.marginBottom = '14px';
   }
