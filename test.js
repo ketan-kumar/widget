@@ -116,7 +116,7 @@ const stl = `body {
   width: 95%;
   border: none;
   background: #FAFAFA;
-  padding-left: 3.5em;
+  padding-left: 4em;
   padding-bottom: 13.5px;
   padding-top: 13.5px;
   font-size: 14px;
@@ -238,7 +238,10 @@ function couponFunction() {
     // <input type="text" placeholder="Nome & cognome" id="name" onKeyup = "myFunc()" />
     // </div>
     // <img src=${url}>
-    document.getElementById('add-icon').innerHTML = `<div></div>`  ;
+    document.getElementById('add-icon').innerHTML = `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM3 5C2.44772 5 2 5.44772 2 6C2 6.55228 2.44772 7 3 7H9C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5H3Z" fill="black"/>
+    </svg>
+    `  ;
     const url="https://gmi-dev-image.s3.eu-central-1.amazonaws.com/business/1582807356954-logo.png";
     console.log(url,'url ------')
     console.log(typeof url,'type of url ---');
@@ -423,7 +426,8 @@ const closeFunc = () => {
   const couponCode = document.getElementById('coupon').value;
   console.log(couponCode,'coupon code -----')
   document.getElementById('close-tab').style.display = 'none';
-  document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" style="position:relative">
+  if(couponCode !== ""){
+     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" style="position:relative">
   <div style="
       background-color: #CCCCCC;              ;
       position: absolute;
@@ -433,6 +437,19 @@ const closeFunc = () => {
       margin-top: 0.1em;"></div>
   <input type='text' name='coupon' id='coupon' value=${couponCode}></div>
 <div class="coupon-tab2" onClick="couponDetails()" style="background-color:black;"><button>ADD</button></div></div>`;
+  }else {
+    document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" style="position:relative">
+    <div style="
+        background-color: #CCCCCC;              ;
+        position: absolute;
+        left: 1.1em;
+        width: 15px;
+        height: 15px;
+        margin-top: 0.1em;"></div>
+    <input type='text' name='coupon' id='coupon' value=${couponCode}></div>
+  <div class="coupon-tab2" onClick="couponDetails()" style="background-color:#CCCCCC;"><button>ADD</button></div></div>`
+  }
+
 // document.getElementById('coupon-tab').style.marginBotground-color:'tom = '14px';
   
 }
