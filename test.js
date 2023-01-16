@@ -237,19 +237,20 @@ function couponFunction() {
     // </svg>
     // <input type="text" placeholder="Nome & cognome" id="name" onKeyup = "myFunc()" />
     // </div>
-    document.getElementById('add-icon').innerHTML = `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path fill-rule="evenodd" clip-rule="evenodd" d="M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM3 5C2.44772 5 2 5.44772 2 6C2 6.55228 2.44772 7 3 7H9C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5H3Z" fill="black"/>
-    </svg>
-    `;
+    // <img src=${url}>
+    document.getElementById('add-icon').innerHTML = `<div></div>`  ;
     const url="https://gmi-dev-image.s3.eu-central-1.amazonaws.com/business/1582807356954-logo.png";
     console.log(url,'url ------')
     console.log(typeof url,'type of url ---');
     // <span class="icon select-business-icon" style="background-image: url(${url});">&nbsp;</span> 
-    document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;">
-    <div class="coupon-tab1" >
-    <img src=${url}>
-  <input type='text' name='coupon' id='coupon' onKeyup="myFunc1()" placeholder="coupon code">
-    </div>
+    document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" style="position: relative;" >
+    <div width='15px' height="16px" style="
+      background-color: background: #CCCCCC;              ;
+      position: absolute;
+      left: 0;
+      width: 15px;
+      height: 15px;
+      margin-top: 0.5em;"></div>
 
         <div class="coupon-tab2" id='coupon-button' onClick="couponDetails()"><button id=''add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
     document.getElementById('coupon-tab').style.marginBottom = '14px';
