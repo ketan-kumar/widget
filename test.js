@@ -244,13 +244,13 @@ function couponFunction() {
     console.log(typeof url,'type of url ---');
     // <span class="icon select-business-icon" style="background-image: url(${url});">&nbsp;</span> 
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" style="position: relative;" >
-    <div width='15px' height="16px" style="
+    <div style="
       background-color: #CCCCCC;              ;
       position: absolute;
-      left: 0;
+      left: 1.1em;
       width: 15px;
       height: 15px;
-      margin-top: 0.5em;"></div>
+      margin-top: 0.1em;"></div>
       <input type='text' name='coupon' id='coupon' onKeyup=myFunc1()></div>
         <div class="coupon-tab2" id='coupon-button' onClick="couponDetails()"><button id=''add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
     document.getElementById('coupon-tab').style.marginBottom = '14px';
@@ -423,10 +423,14 @@ const closeFunc = () => {
   const couponCode = document.getElementById('coupon').value;
   console.log(couponCode,'coupon code -----')
   document.getElementById('close-tab').style.display = 'none';
-  document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" >
-  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M16 14V2C16 0.893333 15.3698 0 14.5891 0H1.41093C0.630218 0 0 0.893333 0 2V14C0 15.1067 0.630218 16 1.41093 16H14.5891C15.3698 16 16 15.1067 16 14Z" fill="#CCCCCC"/>
-      </svg>
+  document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" style="position:relative">
+  <div style="
+      background-color: #CCCCCC;              ;
+      position: absolute;
+      left: 1.1em;
+      width: 15px;
+      height: 15px;
+      margin-top: 0.1em;"></div>
   <input type='text' name='coupon' id='coupon' value=${couponCode}></div>
 <div class="coupon-tab2" onClick="couponDetails()"><button>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
 // document.getElementById('coupon-tab').style.marginBottom = '14px';
