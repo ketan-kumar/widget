@@ -241,7 +241,8 @@ function couponFunction() {
     <path fill-rule="evenodd" clip-rule="evenodd" d="M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM3 5C2.44772 5 2 5.44772 2 6C2 6.55228 2.44772 7 3 7H9C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5H3Z" fill="black"/>
     </svg>
     `;
-    const url="/home/incaendo/work/gmi/widget/assets/square.png";
+    const url="https://gmi-dev-image.s3.eu-central-1.amazonaws.com/business/1582807356954-logo.png";
+    console.log(url,'url ------')
     console.log(typeof url,'type of url ---');
     // <span class="icon select-business-icon" style="background-image: url(${url});">&nbsp;</span> 
     document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;">
@@ -387,6 +388,7 @@ function myFunc() {
 
 const couponDetails = async () => {
   const couponCode = document.getElementById('coupon').value;
+  couponCode.length &&document.getElementById('coupon-tab2').style.backgroundColor = 'red';
   console.log(couponCode,'coupon code -----')
   const response = await fetch('http://localhost:4030/coupon-types?$limit=50');
   const myJson = await response.json(); //extract JSON from the http response
