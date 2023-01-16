@@ -251,7 +251,7 @@ function couponFunction() {
   <input type='text' name='coupon' id='coupon' onKeyup="myFunc1()" placeholder="coupon code">
     </div>
 
-        <div class="coupon-tab2" onClick="couponDetails()"><button id=''add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
+        <div class="coupon-tab2" id='coupon-button' onClick="couponDetails()"><button id=''add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
     document.getElementById('coupon-tab').style.marginBottom = '14px';
   }
   if (count % 2 === 1) {
@@ -449,7 +449,7 @@ function couponCodeFunc(){
 }
 function myFunc1(){
   console.log("Entered in button function --------");
-  const data1 = document.getElementsByClassName('coupon-tab2');
+  const data1 = document.getElementById('coupon-button');
   data1.innerHTML = `<button style="background-color:black;">ADD</button>`;
   // document.getElementById('add-button2').style.backgroundColor = 'black';
   console.log(data1,'data 1 value -----------')
