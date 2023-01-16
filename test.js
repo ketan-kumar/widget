@@ -432,8 +432,8 @@ const closeFunc = () => {
       height: 15px;
       margin-top: 0.1em;"></div>
   <input type='text' name='coupon' id='coupon' value=${couponCode}></div>
-<div class="coupon-tab2" onClick="couponDetails()"><button>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
-// document.getElementById('coupon-tab').style.marginBottom = '14px';
+<div class="coupon-tab2" onClick="couponDetails()" style="background-color:black;"><button>ADD</button></div></div>`;
+// document.getElementById('coupon-tab').style.marginBotground-color:'tom = '14px';
   
 }
 
