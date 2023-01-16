@@ -97,6 +97,7 @@ const stl = `body {
 
     width: 30px;
     background-position: center;
+    margin-left:12px;
     /* padding: 19px; */
     background-repeat: no-repeat;
     display: inline-block;
@@ -399,7 +400,7 @@ const couponDetails = async () => {
   if(couponCode.length !== 0){
     // <img src=${imageUrl} alt="logo-image" id="coupon-image">
   document.getElementById('coupon-tab').innerHTML = `<div style="display:flex;"><div class="coupon-tab1" >
-  <span class="icon select-business-icon" style="background-image: url(${imageUrl});">&nbsp;</span> 
+  <span class="icon select-business-icon" style="background-image: url(${imageUrl});">&nbsp;&nbsp;&nbsp;&nbsp;</span> 
             <input type='text' name='coupon' id='coupon' value=${couponCode} onKeyup=couponCodeFunc()></div>
         <div class="coupon-tab2" onClick="couponDetails()"><button id='add-button1'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
   document.getElementById('coupon-resp').innerHTML = `<div id='close-tab' style="display:flex;justify-content: space-between;">
