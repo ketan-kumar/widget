@@ -297,7 +297,7 @@ function emailFunc(){
   if (name === '' || inputEmail === '') {
     document.getElementById('free-trial').style.backgroundColor = 'rgba(0, 0, 0, 0.2)';
   }
-  if (name.length & inputEmail.length & email) {
+  if (name.length && inputEmail.length && email) {
     console.log('Entered here in  -------')
     const elem = document.getElementById('free-trial')
     document.getElementById('free-trial').style.backgroundColor = 'black';
