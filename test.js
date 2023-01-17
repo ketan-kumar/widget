@@ -3,7 +3,7 @@ const stl = `body {
   padding: 0;
   box-sizing: border-box;
 }
-#gmi-registration-widget {
+#gmi-widget-form {
   display: block;
   border: 2px solid black;
   max-width: 400px;
@@ -429,8 +429,8 @@ window.onload = (event) => {
   const style = window.createElement('style');
   style.innerHTML = stl;
   window.head.appendChild(style); 
-  const ele = window.getElementById('gmi-widget-form');
-  ele.innerHTML = `<div id="gmi-registration-widget">
+  const ele = window.getElementById('gmi-registration-widget');
+  ele.innerHTML = `<div id="gmi-widget-form">
   <p id="heading-text">Registrati</p>
   <p id="sub-heading">Inizia ora la prova gratuita</p>
   <form name="form1" action="#" onsubmit="submit()">
