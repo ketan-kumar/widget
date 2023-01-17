@@ -277,7 +277,7 @@ async function handleButton() {
         'surName': surname,
         'campaign': campaign
     }
-    const response = await fetch("https://api.dev.goodmorningitalia.it/auth?referralID=''&UTM=''", {
+    const response = await fetch("https://api.dev.goodmorningitalia.it/auth?name=''&referralID=''&UTM=''", {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
