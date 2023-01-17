@@ -175,7 +175,7 @@ let name;
 let email;
 let surname;
 function updateEmail(){
-  document.getElementById('gmi-registration-widget').innerHTML = `<p id="heading-text">Registrati</p>
+  document.getElementById('gmi-widget-form').innerHTML = `<p id="heading-text">Registrati</p>
   <p id="sub-heading">Inizia ora la prova gratuita</p>
   <form name="form1" action="#" onsubmit="submit()">
   <div class="input-container">
