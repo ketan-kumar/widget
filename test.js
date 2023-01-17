@@ -293,7 +293,7 @@ async function handleButton() {
       }
     });
     if(apiResp && apiResp.toLowerCase() === "success"){
-      document.getElementById('gmi-registration-widget').innerHTML = `<div><h2>Controlla la tua email</h2>
+      document.getElementById('gmi-widget-form').innerHTML = `<div><h2>Controlla la tua email</h2>
       <p>Completa la registrazione verificando il tuo profilo dalla email che ti abbiamo inviato a  <b>${email}</b>.</p>
       <p>Non hai ricevuto l’email? Inviala di nuovo o <b onclick="updateEmail()">Aggiorna il tuo indirizzo email</b></p>
       <p>Sei già registrato? <a href="https://app.dev.goodmorningitalia.it/login"><b>Fai il login qui</b></a></p>
