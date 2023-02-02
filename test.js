@@ -95,27 +95,17 @@ function couponFunction() {
   count++;
   if (count % 2 === 0) {
     document.getElementById(
-      "add-icon"
-    ).innerHTML = `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+      "couponFunc-icon"
+    ).innerHTML = `<svg id="couponFunc-icon" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
     <path fill-rule="evenodd" clip-rule="evenodd" d="M6 12C9.31371 12 12 9.31371 12 6C12 2.68629 9.31371 0 6 0C2.68629 0 0 2.68629 0 6C0 9.31371 2.68629 12 6 12ZM3 5C2.44772 5 2 5.44772 2 6C2 6.55228 2.44772 7 3 7H9C9.55228 7 10 6.55228 10 6C10 5.44772 9.55228 5 9 5H3Z" fill="black"/>
     </svg>
     `;
-    document.getElementById("coupon-tab").innerHTML = `<div class="coupon-tab1">
-    <div style="
-      background-color: #CCCCCC; 
-      position: absolute;
-      left: 1.1em;
-      width: 15px;
-      height: 15px;
-      margin-top: 0.1em;"></div>
-      <input type='text' name='coupon' id='coupon' onKeyup=myFunc1()>
-        <div class="coupon-tab2" id='coupon-button' onClick="couponDetails()"><button id='add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>`;
+    document.getElementById("coupon-tab").style.display = "block";
     document.getElementById("coupon-tab").style.marginBottom = "14px";
-  }
-  if (count % 2 === 1) {
+  } else {
     document.getElementById(
-      "add-icon"
-    ).innerHTML = `<svg id="add-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      "couponFunc-icon"
+    ).innerHTML = `<svg id="couponFunc-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
     <rect width="16" height="16" fill="url(#pattern0)"/>
     <defs>
     <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -124,7 +114,7 @@ function couponFunction() {
     <image id="image0_1502_59653" width="90" height="90" xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAFoAAABaCAYAAAA4qEECAAAABmJLR0QA/wD/AP+gvaeTAAAEo0lEQVR4nO2dz29VRRTHP9BqnylBDC6gNQFEyw4JWzGSAm7FBZgI7ERN0Kgx4NbEjYkb0oS/wD/ARBcYCbpwgTEYqGyABRjDD5UfrQqxD/taF+dhzPNePPP73ul8kpOXNHPfnPlm3tyZc2amUCgUCoVCoVAoFAoNZVlqByoYArYCm4FNwATwJDAKPNb/BLgLzPQ/LwEXgIvANHAG6EX1uiU8AbwDfA78Biw62izwGfA2MB6xHY3kEeAAcALpfa7i1tk88CWwH+hEaVlDWIH0tKuEE7fOfgU+AB4N3sqEPAQcBm4RX+BBuwW81/cpK54DzpFe4EE7D+wM2O5odIBjwALpRa2zBWAKGAmkQXDWA9+SXkitfQ88FUSJgOzEzzQtts0CkwH0CMJLwJ+kF83WusDL3lXxzGuEnRPHsh5w0LM23tiNLA5Si+RT7L1eFfLAJDBHenF8Wxd4waNOTjxNO198WpsFNnpTy5IRZFqUWozQdprE8+xjFU6Fsi6yhF/btyP9v8Wqf8qTZsY8T9wV35EKH96PWP8CsM1aLUuGkQB7rEYuIr14kDWRfThH5EDU4QCN+D+rI7Yf7xqrZckK4GaEBjVV6Jt9DYxYbvoAcAhYbfFcLqwGXg9dSQe4Rvxe1KQevQhcR1Jxakx79F6qX0pLjTVI8EyNqdAHDMvnTDAtxkkbNKojlT89DLYymPToPcjmloKwHIPhw0ToHea+ZI86G6PdEjaEzB9XWbnjhzpfHzSshGYWeBzF9jNtj95KWpGbyipgi6agVuhn7H3Jns2aQlqhJxwcyR2VNlqhNzk4kjsqbbRCr3dwJHc2aApphV7p4Mg9JGg/hswcbK0Ol+8cQ5IH9xza53VnqktYtCoz0jRcMjU3fDrikptrQxDKJVMzp6nAJh5tShPPyQwSPLSgFfoPhzraEPFz8dFFm/9wGfufVhcZA8d8OuSJ+y9Dl6Hxkk+HYme8q6yO1H6d0QioHTp+VJZbilzWFNIKfcHBkdxRaVOEdser0D84OJI7Km1K4N8N74H/HvCNi0eZ8jXKw/0mK8OTdr5kjVoTk+XxGPAT6TLhTRs6esitDD9rCpv06GvAVzYeZcoJlCKDeVDpE8PyORNUiw5prn9o2hI8+CbHOeCo4TM58jFyOjgoo0hWYan26Ggb0e8CH1k8lwsfAndiVTYMnCVuT6qKZ49H9sH6sJBtKmseeIsH/6R9U5UFiZm9WQTeAP6KWOc/TBGvN/07U+MjM2JqSScBI8jx3Zg/3xT2HfCwJ82s2YhEsVKLEcpmUO5GisF22n3rTJ11gV0edfLCi+R3Mcoerwp55CB5XPUzD7zqWRvv7Kbdw8gcDbzip45J2vmCnEHeN61iHXCK9OJp7TQNuNLHlhFkUdP0KzOP0oB5sg+20YxtZYM2DTwbsN1JGEYuFUkRYh20G8gd1sNBW5yYUaSRV4gv8C/IRd0uR0VaRwfYB3xB2IXOPHAceIUldvV8FWuBN4FPgdu4i3u7/12HkGMTyWnisYch5KTuFuSw5AQS1FmJbEm7n0a6g8zVf0e2zl5ENhxO9638e5BCoVAoFAqFQqFQ0PA32oAL4Nvgw4gAAAAASUVORK5CYII="/>
     </defs>
     </svg>`;
-    document.getElementById("coupon-tab").innerHTML = ``;
+    document.getElementById("coupon-tab").style.display = "none";
     document.getElementById("coupon-tab").style.marginBottom = "0px";
   }
 }
@@ -267,16 +257,7 @@ const closeFunc = () => {
   const couponCode = document.getElementById("coupon").value;
   document.getElementById("close-tab").style.display = "none";
   if (couponCode !== "") {
-    document.getElementById("coupon-tab").innerHTML = `<div class="coupon-tab1">
-  <div style="
-      background-color: #CCCCCC;
-      position: absolute;
-      left: 1.1em;
-      width: 15px;
-      height: 15px;
-      margin-top: 0.1em;"></div>
-  <input type='text' name='coupon' id='coupon' value=${couponCode} onclick="couponFunction1()">
-<div class="coupon-tab2" id="add-button" onClick="couponDetails()" style="background-color:black;"><button>ADD</button></div></div>`;
+    document.getElementById("coupon-resp").style.display = "none";
   }
 };
 function couponFunction1() {
@@ -334,7 +315,7 @@ window.onload = (event) => {
   color: red;">* please enter your email</div>
   </form>
   <div class="coupon-option" onClick="couponFunction()">
-  <svg id="add-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <svg id="couponFunc-icon" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <rect width="16" height="16" fill="url(#pattern0)"/>
   <defs>
   <pattern id="pattern0" patternContentUnits="objectBoundingBox" width="1" height="1">
@@ -344,7 +325,17 @@ window.onload = (event) => {
   </defs>
   </svg>
   <span> Aggiungi Coupon</span></div>
-  <div id="coupon-tab"> 
+  <div id="coupon-tab" style="display:none"> 
+  <div class="coupon-tab1">
+    <div style="
+      background-color: #CCCCCC; 
+      position: absolute;
+      left: 1.1em;
+      width: 15px;
+      height: 15px;
+      margin-top: 0.1em;"></div>
+      <input type='text' name='coupon' id='coupon' onKeyup=myFunc1()>
+        <div class="coupon-tab2" id='coupon-button' onClick="couponDetails()"><button id='add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>
   </div>
   <div id="coupon-code">
   <div class="element-container" onclick="handleButton()"><button id='free-trial'>INIZIA ORA</button></div>
@@ -355,7 +346,7 @@ window.onload = (event) => {
 
   <div id="second-modal" style="display:none;"><h2>Controlla la tua email</h2>
       <p>Completa la registrazione verificando il tuo profilo dalla email che ti abbiamo inviato a  <b>${email}</b>.</p>
-      <p>Non hai ricevuto l’email? Inviala di nuovo o <b onclick="updateEmail()">Aggiorna il tuo indirizzo email</b></p>
+      <p>Non hai ricevuto l’email? Inviala di nuovo o <a href="javascript:updateEmail();" ><b>Aggiorna il tuo indirizzo email</b></a></p>
       <p>Sei già registrato? <a href="https://app.dev.goodmorningitalia.it/login"><b>Fai il login qui</b></a></p>
       </div>
   </div>`;
