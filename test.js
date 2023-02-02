@@ -234,7 +234,7 @@ function myFunc() {
 }
 const couponDetails = async () => {
   const couponCode = document.getElementById("coupon").value;
-  const response = await fetch("http://localhost:4030/coupon-types?$limit=50");
+  const response = await fetch("http://api.dev.goodmorningitalia.it/coupon-types?$limit=50");
   const myJson = await response.json(); //extract JSON from the http response
   const coupon = myJson.data;
   const couponPrefix = couponCode.substring(0, 4);
