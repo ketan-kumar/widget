@@ -5,6 +5,9 @@ const stl = `body {
 }
 #gmi-widget-form {
   display: block;
+  max-width: 450px;
+	border: 1px solid black;
+	padding: 10px;
 }
 .element-container {
   margin-bottom: 14px;
