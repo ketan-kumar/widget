@@ -137,6 +137,7 @@ async function handleButton() {
   name = document.getElementById("name").value;
   email = document.getElementById("email").value;
   surname = document.getElementById("surname").value;
+  couponCode = document.getElementById("coupon").value;
   let apiResp;
   const userData = {
     action: "signup",
@@ -144,6 +145,7 @@ async function handleButton() {
     nicename: name,
     surName: surname,
     campaign: campaign,
+    couponCode: couponCode,
   };
   const response = await fetch(
     "https://api.dev.goodmorningitalia.it/auth?name=''&referralID=''&UTM=''",
