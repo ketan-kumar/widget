@@ -1,3 +1,19 @@
+const widgetData = await fetch(
+  "http://localhost:4030/widget",
+
+  {
+    method: "GET",
+    headers: {
+      'authorization': `Bearer ${localStorage.getItem('id_token')}`,
+      "Content-Type": "application/json",
+      cert:'admin',
+      platform:'ops'
+    },
+    // body: JSON.stringify(userData),
+  }
+).then(res => res.json()).then(result => {
+  console.log(result,"result ======")
+})
 const stl = `body {
   margin: 10;
   padding: 0;
