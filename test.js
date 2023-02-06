@@ -1,4 +1,4 @@
-const widgetData = await fetch(
+const widgetData = fetch(
   "http://localhost:4030/widget",
 
   {
