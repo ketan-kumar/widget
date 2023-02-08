@@ -335,7 +335,7 @@ window.onload = (event) => {
   const data = window.querySelector('[data-registration-widget]');
   const idOfWidget =  window.querySelector('[data-registration-widget]').id;
 
-  console.log(idOFWidget,'Id of widget ======')
+  console.log(idOfWidget,'Id of widget ======')
   console.log(data,'Data ========')
   const dataWidget = widgetCall(idOfWidget);
   console.log(dataWidget,'data widget ========')
