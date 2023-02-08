@@ -1,7 +1,7 @@
 function widgetCall (idOfWidget) {
   let widgetData ;
   fetch(
-    `http://localhost:4030/widget?widget_id=${idOfWidget}`,
+    `http://localhost:4030/widget/${idOfWidget}`,
   
     {
       method: "GET",
@@ -337,8 +337,11 @@ window.onload = (event) => {
 
   console.log(idOfWidget,'Id of widget ======')
   console.log(data,'Data ========')
-  const dataWidget = widgetCall(idOfWidget);
-  console.log(dataWidget,'data widget ========')
+  const dataOfWidget = widgetCall(idOfWidget);
+  const widgetDetails = dataOfWidget.data[0];
+  console.log(widgetDetails,'widget details =======');
+  console.log(dataOfWidget,'data widget ========');
+
   const ele = window.getElementById("gmi-registration-widget");
   ele.innerHTML = `<div id="gmi-widget-form">
   <div id="first-modal" style="display:block;">
