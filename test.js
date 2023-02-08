@@ -187,7 +187,7 @@ function ValidateEmail(input) {
   }
 }
 function emailFunc(nameOption,surnameOption, couponOption) {
-  const name = document.getElementById("name").value;
+  const name = nameOption === 1 ? document.getElementById("name").value : '';
   const inputEmail = document.getElementById("email").value;
   const email = ValidateEmail(inputEmail);
   if (inputEmail === "") {
