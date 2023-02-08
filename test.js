@@ -338,8 +338,8 @@ window.onload = (event) => {
   console.log(idOfWidget,'Id of widget ======')
   console.log(data,'Data ========')
   const dataOfWidget = widgetCall(idOfWidget);
-  const widgetDetails = dataOfWidget.data[0];
-  console.log(widgetDetails,'widget details =======');
+  // const widgetDetails = dataOfWidget.data[0];
+  // console.log(widgetDetails,'widget details =======');
   console.log(dataOfWidget,'data widget ========');
 
   const ele = window.getElementById("gmi-registration-widget");
