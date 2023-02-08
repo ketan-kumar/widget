@@ -327,7 +327,7 @@ function myFunc1() {
   const data1 = document.getElementById("coupon-button");
   data1.innerHTML = `<button style="background-color:black;">ADD</button>`;
 }
-window.onload = (event) => {
+window.onload = async(event) => {
   const window = event.target;
   const style = window.createElement("style");
   style.innerHTML = stl;
@@ -337,18 +337,39 @@ window.onload = (event) => {
 
   console.log(idOfWidget,'Id of widget ======')
   // console.log(data,'Data ========')
-  const dataOfWidget = widgetCall(idOfWidget);
+  // const dataOfWidget = widgetCall(idOfWidget);
   
   const statusObject = {
     active:1,
     inactive:0
   }
-  const widgetData =dataOfWidget && dataOfWidget.data;
-  const widgetDetails = widgetData && widgetData[0];
+  // let widgetData ;
+ const widgetData = await fetch(
+    `http://localhost:4030/widget/?widget_id=${idOfWidget}`,
+  
+    {
+      method: "GET",
+      headers: {
+        'authorization': `Bearer ${localStorage.getItem('id_token')}`,
+        "Content-Type": "application/json",
+        cert:'admin',
+        platform:'ops'
+      },
+      // body: JSON.stringify(userData),
+    }
+  ).then(res => res.json()).then(result => {
+    // widgetData = result;
+
+    console.log(result,"result ======")
+    console.log(widgetData,'widget Data ======')
+    return result.data[0]; 
+  })
+  // const widgetData =dataOfWidget && dataOfWidget.data;
+  // const widgetDetails = widgetData && widgetData[0];
 
   console.log(widgetData,'data  ======');
-  console.log(widgetDetails,'details ========')
-  const widgetMeta = JSON.parse(widgetDetails.widget_meta);
+  // console.log(,'details ========')
+  // const widgetMeta = JSON.parse(widgetDetails.widget_meta);
 
   console.log(widgetDetails,'widget details =======');
   console.log(widgetMeta,'Widget Meta ========')
