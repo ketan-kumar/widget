@@ -338,12 +338,13 @@ window.onload = (event) => {
   console.log(idOfWidget,'Id of widget ======')
   // console.log(data,'Data ========')
   const dataOfWidget = widgetCall(idOfWidget);
+  
   const statusObject = {
     active:1,
     inactive:0
   }
   const widgetData =dataOfWidget && dataOfWidget.data;
-  const widgetDetails = widgetData[0];
+  const widgetDetails = widgetData && widgetData[0];
 
   console.log(widgetData,'data  ======');
   console.log(widgetDetails,'details ========')
