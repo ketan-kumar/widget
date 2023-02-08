@@ -308,7 +308,7 @@ window.onload = (event) => {
   const style = window.createElement("style");
   style.innerHTML = stl;
   window.head.appendChild(style);
-  const data = window.querySelector(['data-registration-widget']);
+  const data = window.querySelectorAll(['data-registration-widget']);
   console.log(data,'Data ========')
   const ele = window.getElementById("gmi-registration-widget");
   ele.innerHTML = `<div id="gmi-widget-form">
