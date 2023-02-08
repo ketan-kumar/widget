@@ -1,43 +1,3 @@
-function widgetCall (idOfWidget) {
-  let widgetData ;
-  fetch(
-    `http://localhost:4030/widget/?widget_id=${idOfWidget}`,
-  
-    {
-      method: "GET",
-      headers: {
-        'authorization': `Bearer ${localStorage.getItem('id_token')}`,
-        "Content-Type": "application/json",
-        cert:'admin',
-        platform:'ops'
-      },
-      // body: JSON.stringify(userData),
-    }
-  ).then(res => res.json()).then(result => {
-    widgetData = result;
-
-    console.log(result,"result ======")
-    console.log(widgetData,'widget Data ======')
-    return widgetData; 
-  })
-}
-const widgetData = fetch(
-  "http://localhost:4030/widget",
-
-  {
-    method: "GET",
-    headers: {
-      'authorization': `Bearer ${localStorage.getItem('id_token')}`,
-      "Content-Type": "application/json",
-      cert:'admin',
-      platform:'ops'
-    },
-    // body: JSON.stringify(userData),
-  }
-).then(res => res.json()).then(result => {
-  return 
-  console.log(result,"result ======")
-})
 const stl = `body {
   margin: 10;
   padding: 0;
@@ -254,7 +214,8 @@ function emailFunc() {
     document.getElementById("free-trial").style.backgroundColor = "black";
   }
 }
-function myFunc() {
+function myFunc(nameOption,surnameOption, couponOption) {
+  console.log(nameOption,surnameOption, couponOption, "toggle Opyions details ===========")
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   if (name.length & email.length) {
@@ -334,56 +295,29 @@ window.onload = async(event) => {
   window.head.appendChild(style);
   const element = window.querySelector('[data-registration-widget]');
   const idOfWidget =  window.querySelector('[data-registration-widget]').id;
-
-  console.log(idOfWidget,'Id of widget ======')
-  // console.log(data,'Data ========')
-  // const dataOfWidget = widgetCall(idOfWidget);
-  
   const statusObject = {
     "active":1,
     "inactive":0
   }
-  // let widgetData ;
  const widgetData = await fetch(
     `http://localhost:4030/widget/?widget_id=${idOfWidget}`,
   
     {
       method: "GET",
       headers: {
-        'authorization': `Bearer ${localStorage.getItem('id_token')}`,
         "Content-Type": "application/json",
         cert:'admin',
         platform:'ops'
       },
-      // body: JSON.stringify(userData),
     }
   ).then(res => res.json()).then(result => {
-    // widgetData = result;
-
-    console.log(result,"result ======")
-    // console.log(widgetData,'widget Data ======')
     return result.data[0]; 
   })
-  // const widgetData =dataOfWidget && dataOfWidget.data;
-  // const widgetDetails = widgetData && widgetData[0];
-
-  console.log(widgetData,'data  ======');
-  // console.log(,'details ========')
   const widgetMeta = JSON.parse(widgetData.widget_meta);
-
-  // console.log(widgetDetails,'widget details =======');
-  console.log(widgetMeta,'Widget Meta ========')
-  // console.log(dataOfWidget,'data widget ========');
   const statusOfWidget = statusObject[widgetData.status];
-  console.log(statusOfWidget ,'status of widget =============')
   const nameOption = statusObject[widgetMeta.should_name_mount];
-  console.log(nameOption,'name Option =======')
-  // const emailOption = false;
   const surnameOption = statusObject[widgetMeta.should_surname_mount];
-  console.log(surnameOption, "surnameOtion =======")
   const couponOption = statusObject[widgetMeta.should_coupon_mount];
-  console.log(couponOption,'Coupon option =======')
-  const ele = window.getElementById("gmi-registration-widget");
   element.innerHTML = statusOfWidget ? `<div id="gmi-widget-form">
   <div id="first-modal" style="display:block;">
   <h2>Registrati</h2>
@@ -393,7 +327,7 @@ window.onload = async(event) => {
   <?xml version="1.0" encoding="iso-8859-1"?>
   <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
   <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="35px" viewBox="0 0 24 24"><g data-name="Layer 2"><path fill="rgba(0, 0, 0, 0.2)" d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm6 10a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z" data-name="person"/></g></svg>                  
-  <input type="text" placeholder="Nome" id="name"  onKeyup = "myFunc()" value='${name}' />
+  <input type="text" placeholder="Nome" id="name"  onKeyup = "myFunc(${nameOption}, ${surnameOption}, ${couponOption})" value='${name}' />
   </div>` : ""}
   <div id="hiding-name-msg" style="display:none;margin-bottom: 1em;
   color: red;">* please enter your name</div>
@@ -445,5 +379,5 @@ window.onload = async(event) => {
       <p>Non hai ricevuto l’email? Inviala di nuovo o <a href="javascript:updateEmail();" ><b>Aggiorna il tuo indirizzo email</b></a></p>
       <p>Sei già registrato? <a href="https://app.dev.goodmorningitalia.it/login"><b>Fai il login qui</b></a></p>
       </div>
-  </div>` : null;
+  </div>` : '';
 };
