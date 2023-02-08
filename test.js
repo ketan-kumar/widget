@@ -1,7 +1,7 @@
 function widgetCall (idOfWidget) {
   let widgetData ;
   fetch(
-    `http://localhost:4030/widget/${idOfWidget}`,
+    `http://localhost:4030/widget?widget_id=${idOfWidget}`,
   
     {
       method: "GET",
