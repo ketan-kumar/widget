@@ -303,13 +303,13 @@ function myFunc1() {
   const data1 = document.getElementById("coupon-button");
   data1.innerHTML = `<button style="background-color:black;">ADD</button>`;
 }
-const data = document.querySelector(['data-registration-widget']);
-console.log(data,'Data ========')
 window.onload = (event) => {
   const window = event.target;
   const style = window.createElement("style");
   style.innerHTML = stl;
   window.head.appendChild(style);
+  const data = window.querySelector(['data-registration-widget']);
+  console.log(data,'Data ========')
   const ele = window.getElementById("gmi-registration-widget");
   ele.innerHTML = `<div id="gmi-widget-form">
   <div id="first-modal" style="display:block;">
