@@ -332,7 +332,7 @@ window.onload = (event) => {
   const style = window.createElement("style");
   style.innerHTML = stl;
   window.head.appendChild(style);
-  const data = window.querySelector('[data-registration-widget]');
+  const element = window.querySelector('[data-registration-widget]');
   const idOfWidget =  window.querySelector('[data-registration-widget]').id;
 
   console.log(idOfWidget,'Id of widget ======')
@@ -342,7 +342,11 @@ window.onload = (event) => {
     active:1,
     inactive:0
   }
-  const widgetDetails = dataOfWidget.data[0];
+  const widgetData = dataOfWidget.data;
+  const widgetDetails = widgetData[0];
+
+  console.log(widgetData,'data  ======');
+  console.log(widgetDetails,'details ========')
   const widgetMeta = JSON.parse(widgetDetails.widget_meta);
 
   console.log(widgetDetails,'widget details =======');
@@ -358,7 +362,7 @@ window.onload = (event) => {
   const couponOption = statusObject[widgetMeta.should_coupon_mount];
   console.log(couponOption,'Coupon option =======')
   const ele = window.getElementById("gmi-registration-widget");
-  ele.innerHTML = statusOfWidget ? `<div id="gmi-widget-form">
+  element.innerHTML = statusOfWidget ? `<div id="gmi-widget-form">
   <div id="first-modal" style="display:block;">
   <h2>Registrati</h2>
   <p>Inizia ora la prova gratuita</p>
