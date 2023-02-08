@@ -1,3 +1,26 @@
+function widgetCall (idOfWidget) {
+  let widgetData ;
+  fetch(
+    `http://localhost:4030/widget/${idOfWidget}`,
+  
+    {
+      method: "GET",
+      headers: {
+        'authorization': `Bearer ${localStorage.getItem('id_token')}`,
+        "Content-Type": "application/json",
+        cert:'admin',
+        platform:'ops'
+      },
+      // body: JSON.stringify(userData),
+    }
+  ).then(res => res.json()).then(result => {
+    widgetData = result;
+
+    console.log(result,"result ======")
+    console.log(widgetData,'widget Data ======')
+    return widgetData; 
+  })
+}
 const widgetData = fetch(
   "http://localhost:4030/widget",
 
@@ -12,6 +35,7 @@ const widgetData = fetch(
     // body: JSON.stringify(userData),
   }
 ).then(res => res.json()).then(result => {
+  return 
   console.log(result,"result ======")
 })
 const stl = `body {
@@ -309,7 +333,12 @@ window.onload = (event) => {
   style.innerHTML = stl;
   window.head.appendChild(style);
   const data = window.querySelector('[data-registration-widget]');
+  const idOfWidget =  window.querySelector('[data-registration-widget]').id;
+
+  console.log(idOFWidget,'Id of widget ======')
   console.log(data,'Data ========')
+  const dataWidget = widgetCall(idOfWidget);
+  console.log(dataWidget,'data widget ========')
   const ele = window.getElementById("gmi-registration-widget");
   ele.innerHTML = `<div id="gmi-widget-form">
   <div id="first-modal" style="display:block;">
