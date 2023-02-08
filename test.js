@@ -340,8 +340,8 @@ window.onload = async(event) => {
   // const dataOfWidget = widgetCall(idOfWidget);
   
   const statusObject = {
-    active:1,
-    inactive:0
+    "active":1,
+    "inactive":0
   }
   // let widgetData ;
  const widgetData = await fetch(
@@ -369,12 +369,12 @@ window.onload = async(event) => {
 
   console.log(widgetData,'data  ======');
   // console.log(,'details ========')
-  // const widgetMeta = JSON.parse(widgetDetails.widget_meta);
+  const widgetMeta = JSON.parse(widgetData.widget_meta);
 
-  console.log(widgetDetails,'widget details =======');
+  // console.log(widgetDetails,'widget details =======');
   console.log(widgetMeta,'Widget Meta ========')
-  console.log(dataOfWidget,'data widget ========');
-  const statusOfWidget = statusObject[widgetDetails.status];
+  // console.log(dataOfWidget,'data widget ========');
+  const statusOfWidget = statusObject[widgetData.status];
   console.log(statusOfWidget ,'status of widget =============')
   const nameOption = statusObject[widgetMeta.should_name_mount];
   console.log(nameOption,'name Option =======')
