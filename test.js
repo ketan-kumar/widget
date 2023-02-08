@@ -342,7 +342,7 @@ window.onload = (event) => {
     active:1,
     inactive:0
   }
-  const widgetData = dataOfWidget.data;
+  const widgetData =dataOfWidget && dataOfWidget.data;
   const widgetDetails = widgetData[0];
 
   console.log(widgetData,'data  ======');
