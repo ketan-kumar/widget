@@ -303,7 +303,7 @@ function myFunc1() {
   const data1 = document.getElementById("coupon-button");
   data1.innerHTML = `<button style="background-color:black;">ADD</button>`;
 }
-const data = document.querySelectorAll(['data-registration-widget']);
+const data = document.querySelector(['data-registration-widget']);
 console.log(data,'Data ========')
 window.onload = (event) => {
   const window = event.target;
