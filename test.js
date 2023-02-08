@@ -361,7 +361,7 @@ window.onload = async(event) => {
     // widgetData = result;
 
     console.log(result,"result ======")
-    console.log(widgetData,'widget Data ======')
+    // console.log(widgetData,'widget Data ======')
     return result.data[0]; 
   })
   // const widgetData =dataOfWidget && dataOfWidget.data;
