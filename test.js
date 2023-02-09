@@ -303,7 +303,7 @@ window.onload = async(event) => {
     "inactive":0
   }
  const widgetData = await fetch(
-    `http://localhost:4030/widget/?widget_id=${idOfWidget}`,
+    `https://app.dev.goodmorningitalia.it/widget?widget_id=${idOfWidget}`,
   
     {
       method: "GET",
