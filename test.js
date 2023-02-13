@@ -297,6 +297,7 @@ window.onload = async(event) => {
   style.innerHTML = stl;
   window.head.appendChild(style);
   const element = window.querySelector('[data-widgetid]');
+  console.log(element,'Element =======')
   const idOfWidget =  window.querySelector('[data-widgetid]').id;
   const statusObject = {
     "active":1,
