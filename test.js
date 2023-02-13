@@ -298,16 +298,16 @@ window.onload = async(event) => {
   window.head.appendChild(style);
   const element = window.querySelector('[data-widgetid]');
   console.log(element,'Element =======')
-  const id = element.data-widgetid;
-  console.log(id,'id ===========')
-  const idOfWidget =  element[data-widgetid];
+  // const id = element.data-widgetid;
+  // console.log(id,'id ===========')
+  const idOfWidget =  element.getAttribute('data-widgetid');
   console.log(idOfWidget,'id of widget ==========')
   const statusObject = {
     "active":1,
     "inactive":0
   }
  const widgetData = await fetch(
-    `https://app.dev.goodmorningitalia.it/widget?widget_id=e9da8aca0e8ad40fe65b004f586a4b59`,
+    `https://app.dev.goodmorningitalia.it/widget?widget_id=${idOfWidget}`,
   
     {
       method: "GET",
