@@ -304,7 +304,7 @@ window.onload = async(event) => {
     "inactive":0
   }
  const widgetData = await fetch(
-    `https://app.dev.goodmorningitalia.it/widget?widget_id=${idOfWidget}`,
+    `https://app.dev.goodmorningitalia.it/widget?widget_id=e9da8aca0e8ad40fe65b004f586a4b59`,
   
     {
       method: "GET",
