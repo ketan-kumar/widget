@@ -316,6 +316,7 @@ window.onload = async(event) => {
   ).then(res => res.json()).then(result => {
     return result.data[0]; 
   })
+  console.log('widget data variable ========', widgetData)
   const widgetMeta = JSON.parse(widgetData.widget_meta);
   const statusOfWidget = statusObject[widgetData.status];
   const nameOption = statusObject[widgetMeta.should_name_mount];
