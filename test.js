@@ -316,6 +316,7 @@ window.onload = async(event) => {
         cert:'admin',
         platform:'ops'
       },
+      mode: 'no-cors'
     }
   ).then(res => res.json()).then(result => {
     return result.data[0]; 
