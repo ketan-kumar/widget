@@ -121,7 +121,7 @@ function couponFunction() {
     document.getElementById("coupon-tab").style.marginBottom = "0px";
   }
 }
-async function handleButton(nameOption, surnameOption, couponOption, widgetData) {
+async function handleButton(nameOption, surnameOption, couponOption, widgetId, hostName) {
   let campaign = "";
   const params = window.location.search.substr(1).split("&");
   for (const param of params) {
@@ -148,7 +148,7 @@ async function handleButton(nameOption, surnameOption, couponOption, widgetData)
     couponCode: couponCode,
   };
   const response = await fetch(
-    `https://api.dev.goodmorningitalia.it/auth?utm_referral='${widgetData.widget_id}'&utm_source='gmi'&utm_campaign='${campaign}'&utm_name='${widgetData.host_name}'`,
+    `https://api.dev.goodmorningitalia.it/auth?utm_referral='${widgetId}'&utm_source='gmi'&utm_campaign='${campaign}'&utm_name='${hostName}'`,
     {
       method: "POST",
       headers: {
@@ -321,7 +321,10 @@ window.onload = async(event) => {
   ).then(res => res.json()).then(result => {
     return result.data[0]; 
   })
-  console.log('widget data variable ========', widgetData)
+  console.log('widget data variable ========', widgetData);
+  const widgetID = widgetData.widget_id;
+  const hostName = widgetData.host_name;
+  console.log(widgetID, hostName,' Host And widgetId name ==========');
   const widgetMeta = JSON.parse(widgetData.widget_meta);
   const statusOfWidget = statusObject[widgetData.status];
   const nameOption = statusObject[widgetMeta.should_name_mount];
@@ -377,7 +380,7 @@ window.onload = async(event) => {
         <div class="coupon-tab2" id='coupon-button' onClick="couponDetails()"><button id='add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>
   </div>
   <div id="coupon-code">
-  <div class="element-container" onclick="handleButton(${nameOption}, ${surnameOption}, ${couponOption}, ${widgetData})"><button id='free-trial'>INIZIA ORA</button></div>
+  <div class="element-container" onclick="handleButton(${nameOption}, ${surnameOption}, ${couponOption}, ${widgetID}, ${hostName})"><button id='free-trial'>INIZIA ORA</button></div>
   <div id="api-error-msg" style="color: red; margin-bottom: 1em;"></div>
   <div>Sei già registrato? <a href='https://app.dev.goodmorningitalia.it/login'><b>Fai il login qui</b></a></div>
   </div>
