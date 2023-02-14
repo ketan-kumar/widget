@@ -121,9 +121,9 @@ function couponFunction() {
     document.getElementById("coupon-tab").style.marginBottom = "0px";
   }
 }
-async function handleButton(nameOption, surnameOption, couponOption, idOfWidget="", nameOfHost="") {
+async function handleButton(nameOption, surnameOption, couponOption, idOfWidget="") {
   let campaign = "";
-  console.log(idOfWidget,nameOfHost,'host and Id of widget ========')
+  console.log(idOfWidget,'host and Id of widget ========')
   const params = window.location.search.substr(1).split("&");
   for (const param of params) {
     const splitParam = param.split("=");
