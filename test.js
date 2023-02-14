@@ -307,7 +307,7 @@ window.onload = async(event) => {
     "inactive":0
   }
  const widgetData = await fetch(
-    `https://app.dev.goodmorningitalia.it/widget?widget_id=${idOfWidget}`,
+    `https://api.dev.goodmorningitalia.it/widget?widget_id=${idOfWidget}`,
   
     {
       method: "GET",
@@ -316,7 +316,7 @@ window.onload = async(event) => {
         cert:'admin',
         platform:'ops'
       },
-      mode: 'no-cors'
+      // mode: 'no-cors'
     }
   ).then(res => res.json()).then(result => {
     return result.data[0]; 
