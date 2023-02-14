@@ -121,7 +121,7 @@ function couponFunction() {
     document.getElementById("coupon-tab").style.marginBottom = "0px";
   }
 }
-async function handleButton(nameOption, surnameOption, couponOption) {
+async function handleButton(nameOption, surnameOption, couponOption, widgetData) {
   let campaign = "";
   const params = window.location.search.substr(1).split("&");
   for (const param of params) {
@@ -148,7 +148,7 @@ async function handleButton(nameOption, surnameOption, couponOption) {
     couponCode: couponCode,
   };
   const response = await fetch(
-    "https://api.dev.goodmorningitalia.it/auth?name=''&referralID=''&UTM=''",
+    `https://api.dev.goodmorningitalia.it/auth?utm_referral='${widgetData.widget_id}'&utm_source='gmi'&utm_campaign='${campaign}'&utm_name='${widgetData.host_name}'`,
     {
       method: "POST",
       headers: {
@@ -377,7 +377,7 @@ window.onload = async(event) => {
         <div class="coupon-tab2" id='coupon-button' onClick="couponDetails()"><button id='add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>
   </div>
   <div id="coupon-code">
-  <div class="element-container" onclick="handleButton(${nameOption}, ${surnameOption}, ${couponOption})"><button id='free-trial'>INIZIA ORA</button></div>
+  <div class="element-container" onclick="handleButton(${nameOption}, ${surnameOption}, ${couponOption}, ${widgetData})"><button id='free-trial'>INIZIA ORA</button></div>
   <div id="api-error-msg" style="color: red; margin-bottom: 1em;"></div>
   <div>Sei già registrato? <a href='https://app.dev.goodmorningitalia.it/login'><b>Fai il login qui</b></a></div>
   </div>
