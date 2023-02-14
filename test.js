@@ -121,8 +121,9 @@ function couponFunction() {
     document.getElementById("coupon-tab").style.marginBottom = "0px";
   }
 }
-async function handleButton(nameOption, surnameOption, couponOption, widgetId, hostName) {
+async function handleButton(nameOption, surnameOption, couponOption, idOfWidget="", nameOfHost="") {
   let campaign = "";
+  console.log(idOfWidget,nameOfHost,'host and Id of widget ========')
   const params = window.location.search.substr(1).split("&");
   for (const param of params) {
     const splitParam = param.split("=");
@@ -148,7 +149,7 @@ async function handleButton(nameOption, surnameOption, couponOption, widgetId, h
     couponCode: couponCode,
   };
   const response = await fetch(
-    `https://api.dev.goodmorningitalia.it/auth?utm_referral='${widgetId}'&utm_source='gmi'&utm_campaign='${campaign}'&utm_name='${hostName}'`,
+    `https://api.dev.goodmorningitalia.it/auth?utm_referral='${idOfWidget}'&utm_source='gmi'&utm_campaign='${campaign}'&utm_name='${nameOfHost}'`,
     {
       method: "POST",
       headers: {
@@ -322,14 +323,14 @@ window.onload = async(event) => {
     return result.data[0]; 
   })
   console.log('widget data variable ========', widgetData);
-  const widgetID = JSON.stringify(widgetData.widget_id);
-  const hostName = JSON.stringify(widgetData.host_name);
-  console.log(widgetID, hostName,' Host And widgetId name ==========');
   const widgetMeta = JSON.parse(widgetData.widget_meta);
   const statusOfWidget = statusObject[widgetData.status];
   const nameOption = statusObject[widgetMeta.should_name_mount];
   const surnameOption = statusObject[widgetMeta.should_surname_mount];
   const couponOption = statusObject[widgetMeta.should_coupon_mount];
+  const widgetID = JSON.stringify(widgetData.widget_id);
+  const hostName = JSON.stringify(widgetData.host_name);
+  console.log(widgetID, hostName,' Host And widgetId name ==========');
   element.innerHTML = statusOfWidget ? `<div id="gmi-widget-form">
   <div id="first-modal" style="display:block;">
   <h2>Registrati</h2>
