@@ -322,6 +322,7 @@ window.onload = async(event) => {
   ).then(res => res.json()).then(result => {
     return result.data[0]; 
   })
+  const widgetInfo = JSON.stringify(widgetData);
   console.log('widget data variable ========', widgetData);
   const widgetMeta = JSON.parse(widgetData.widget_meta);
   const statusOfWidget = statusObject[widgetData.status];
@@ -381,7 +382,7 @@ window.onload = async(event) => {
         <div class="coupon-tab2" id='coupon-button' onClick="couponDetails()"><button id='add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>
   </div>
   <div id="coupon-code">
-  <div class="element-container" onclick="handleButton(${nameOption}, ${surnameOption}, ${couponOption}, ${widgetID}, ${hostName})"><button id='free-trial'>INIZIA ORA</button></div>
+  <div class="element-container" onclick="handleButton(${nameOption}, ${surnameOption}, ${couponOption}, ${widgetInfo})"><button id='free-trial'>INIZIA ORA</button></div>
   <div id="api-error-msg" style="color: red; margin-bottom: 1em;"></div>
   <div>Sei già registrato? <a href='https://app.dev.goodmorningitalia.it/login'><b>Fai il login qui</b></a></div>
   </div>
