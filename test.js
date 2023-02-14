@@ -322,8 +322,8 @@ window.onload = async(event) => {
     return result.data[0]; 
   })
   console.log('widget data variable ========', widgetData);
-  const widgetID = widgetData.widget_id;
-  const hostName = widgetData.host_name;
+  const widgetID = JSON.stringify(widgetData.widget_id);
+  const hostName = JSON.stringify(widgetData.host_name);
   console.log(widgetID, hostName,' Host And widgetId name ==========');
   const widgetMeta = JSON.parse(widgetData.widget_meta);
   const statusOfWidget = statusObject[widgetData.status];
