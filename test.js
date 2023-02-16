@@ -89,6 +89,7 @@ let count = 1;
 let name = "";
 let email = "";
 let surname = "";
+let widgetInfo = {};
 function updateEmail() {
   document.getElementById("first-modal").style.display = "block";
   document.getElementById("api-error-msg").innerHTML = ``;
@@ -121,9 +122,11 @@ function couponFunction() {
     document.getElementById("coupon-tab").style.marginBottom = "0px";
   }
 }
-async function handleButton(nameOption, surnameOption, couponOption, idOfWidget="") {
+async function handleButton(nameOption, surnameOption, couponOption, idOfWidget = "") {
   let campaign = "";
-  console.log(idOfWidget,'host and Id of widget ========')
+  const widgetId = widgetInfo.widgetID;
+  const nameOfHost = widgetInfo.hostName;
+  console.log(idOfWidget, 'host and Id of widget ========')
   const params = window.location.search.substr(1).split("&");
   for (const param of params) {
     const splitParam = param.split("=");
@@ -149,7 +152,7 @@ async function handleButton(nameOption, surnameOption, couponOption, idOfWidget=
     couponCode: couponCode,
   };
   const response = await fetch(
-    `https://api.dev.goodmorningitalia.it/auth?utm_referral='${idOfWidget}'&utm_source='gmi'&utm_campaign='${campaign}'&utm_name='${nameOfHost}'`,
+    `http://localhost:4030/auth?utm_referral=${widgetId}&utm_source=gmi&utm_campaign=${campaign}&utm_name=${nameOfHost}`,
     {
       method: "POST",
       headers: {
@@ -169,7 +172,11 @@ async function handleButton(nameOption, surnameOption, couponOption, idOfWidget=
     });
   if (apiResp && apiResp.toLowerCase() === "success") {
     document.getElementById("first-modal").style.display = "none";
-    document.getElementById("second-modal").style.display = "block";
+    document.getElementById("second-modal").innerHTML = `<h2>Controlla la tua email</h2>
+    <p>Completa la registrazione verificando il tuo profilo dalla email che ti abbiamo inviato a  <b>${email}</b>.</p>
+    <p>Non hai ricevuto l’email? Inviala di nuovo o <a href="javascript:updateEmail();" ><b>Aggiorna il tuo indirizzo email</b></a></p>
+    <p>Sei già registrato? <a href="https://app.dev.goodmorningitalia.it/login"><b>Fai il login qui</b></a></p>
+    </div>`;
   }
   if (apiResp.toLowerCase() === "undefined") {
     document.getElementById("api-error-msg").innerHTML = ``;
@@ -187,7 +194,7 @@ function ValidateEmail(input) {
     return false;
   }
 }
-function emailFunc(nameOption,surnameOption, couponOption) {
+function emailFunc(nameOption, surnameOption, couponOption) {
   const name = nameOption === 1 ? document.getElementById("name").value : '';
   const inputEmail = document.getElementById("email").value;
   const email = ValidateEmail(inputEmail);
@@ -214,12 +221,12 @@ function emailFunc(nameOption,surnameOption, couponOption) {
     const elem = document.getElementById("free-trial");
     document.getElementById("free-trial").style.backgroundColor = "black";
   }
-  if(!nameOption && inputEmail.length && email){
+  if (!nameOption && inputEmail.length && email) {
     const elem = document.getElementById("free-trial");
     document.getElementById("free-trial").style.backgroundColor = "black";
   }
 }
-function myFunc(nameOption,surnameOption, couponOption) {
+function myFunc(nameOption, surnameOption, couponOption) {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
   if (name.length & email.length) {
@@ -292,52 +299,46 @@ function myFunc1() {
   const data1 = document.getElementById("coupon-button");
   data1.innerHTML = `<button style="background-color:black;">ADD</button>`;
 }
-window.onload = async(event) => {
+window.onload = async (event) => {
   const window = event.target;
   const style = window.createElement("style");
   style.innerHTML = stl;
   window.head.appendChild(style);
   const element = window.querySelector('[data-widgetid]');
-  console.log(element,'Element =======')
-  // const id = element.data-widgetid;
-  // console.log(id,'id ===========')
-  const idOfWidget =  element.getAttribute('data-widgetid');
-  console.log(idOfWidget,'id of widget ==========')
+  const idOfWidget = element.getAttribute('data-widgetid');
   const statusObject = {
-    "active":1,
-    "inactive":0
+    "active": 1,
+    "inactive": 0
   }
- const widgetData = await fetch(
+  const widgetData = await fetch(
     `https://api.dev.goodmorningitalia.it/widget?widget_id=${idOfWidget}`,
-  
+
     {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
-        cert:'admin',
-        platform:'ops'
+        cert: 'admin',
+        platform: 'ops'
       },
-      // mode: 'no-cors'
     }
   ).then(res => res.json()).then(result => {
-    return result.data[0]; 
+    return result.data[0];
   })
-  const widgetInfo = JSON.stringify(widgetData);
-  console.log('widget data variable ========', widgetData);
   const widgetMeta = JSON.parse(widgetData.widget_meta);
   const statusOfWidget = statusObject[widgetData.status];
   const nameOption = statusObject[widgetMeta.should_name_mount];
   const surnameOption = statusObject[widgetMeta.should_surname_mount];
   const couponOption = statusObject[widgetMeta.should_coupon_mount];
-  const widgetID = JSON.stringify(widgetData.widget_id);
-  const hostName = JSON.stringify(widgetData.host_name);
-  console.log(widgetID, hostName,' Host And widgetId name ==========');
+  widgetInfo = {
+    widgetID,
+    hostName,
+  }
   element.innerHTML = statusOfWidget ? `<div id="gmi-widget-form">
   <div id="first-modal" style="display:block;">
   <h2>Registrati</h2>
   <p>Inizia ora la prova gratuita</p>
   <form name="form1" action="#" onsubmit="submit()">
-  ${nameOption ?  `<div class="element-container">
+  ${nameOption ? `<div class="element-container">
   <?xml version="1.0" encoding="iso-8859-1"?>
   <!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
   <svg xmlns="http://www.w3.org/2000/svg" width="40px" height="35px" viewBox="0 0 24 24"><g data-name="Layer 2"><path fill="rgba(0, 0, 0, 0.2)" d="M12 11a4 4 0 1 0-4-4 4 4 0 0 0 4 4zm6 10a1 1 0 0 0 1-1 7 7 0 0 0-14 0 1 1 0 0 0 1 1z" data-name="person"/></g></svg>                  
@@ -382,16 +383,11 @@ window.onload = async(event) => {
         <div class="coupon-tab2" id='coupon-button' onClick="couponDetails()"><button id='add-button'>ADD</button></div></div><div id='coupon-resp' style="color:black; display:block"></div>
   </div>
   <div id="coupon-code">
-  <div class="element-container" onclick="handleButton(${nameOption}, ${surnameOption}, ${couponOption}, ${widgetInfo})"><button id='free-trial'>INIZIA ORA</button></div>
+  <div class="element-container" onclick="handleButton(${nameOption}, ${surnameOption}, ${couponOption})"><button id='free-trial'>INIZIA ORA</button></div>
   <div id="api-error-msg" style="color: red; margin-bottom: 1em;"></div>
   <div>Sei già registrato? <a href='https://app.dev.goodmorningitalia.it/login'><b>Fai il login qui</b></a></div>
   </div>
   </div>
-
-  <div id="second-modal" style="display:none;"><h2>Controlla la tua email</h2>
-      <p>Completa la registrazione verificando il tuo profilo dalla email che ti abbiamo inviato a  <b>${email}</b>.</p>
-      <p>Non hai ricevuto l’email? Inviala di nuovo o <a href="javascript:updateEmail();" ><b>Aggiorna il tuo indirizzo email</b></a></p>
-      <p>Sei già registrato? <a href="https://app.dev.goodmorningitalia.it/login"><b>Fai il login qui</b></a></p>
-      </div>
+  <div id="second-modal">
   </div>` : '';
 };
