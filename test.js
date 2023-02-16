@@ -126,7 +126,6 @@ async function handleButton(nameOption, surnameOption, couponOption, idOfWidget 
   let campaign = "";
   const widgetId = widgetInfo.widgetID;
   const nameOfHost = widgetInfo.hostName;
-  console.log(idOfWidget, 'host and Id of widget ========')
   const params = window.location.search.substr(1).split("&");
   for (const param of params) {
     const splitParam = param.split("=");
