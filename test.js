@@ -329,6 +329,7 @@ window.onload = async (event) => {
   const nameOption = statusObject[widgetMeta.should_name_mount];
   const surnameOption = statusObject[widgetMeta.should_surname_mount];
   const couponOption = statusObject[widgetMeta.should_coupon_mount];
+  const hostName = widgetData.host_name;
   widgetInfo = {
     widgetID: idOfWidget,
     hostName,
