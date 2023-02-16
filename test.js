@@ -330,7 +330,7 @@ window.onload = async (event) => {
   const surnameOption = statusObject[widgetMeta.should_surname_mount];
   const couponOption = statusObject[widgetMeta.should_coupon_mount];
   widgetInfo = {
-    widgetID,
+    widgetID: idOfWidget,
     hostName,
   }
   element.innerHTML = statusOfWidget ? `<div id="gmi-widget-form">
