@@ -152,7 +152,7 @@ async function handleButton(nameOption, surnameOption, couponOption, idOfWidget 
     couponCode: couponCode,
   };
   const response = await fetch(
-    `http://localhost:4030/auth?utm_referral=${widgetId}&utm_source=gmi&utm_campaign=${campaign}&utm_name=${nameOfHost}`,
+    `https://api.dev.goodmorningitalia.it/auth?utm_referral=${widgetId}&utm_source=gmi&utm_campaign=${campaign}&utm_name=${nameOfHost}`,
     {
       method: "POST",
       headers: {
