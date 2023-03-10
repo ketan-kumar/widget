@@ -148,8 +148,9 @@ async function handleButton(nameOption, surnameOption, couponOption, idOfWidget 
     nicename: name,
     surName: surname,
     campaign: campaign,
-    couponCode: couponCode,
   };
+
+  if (couponCode !== '') userData.couponCode = couponCode;
   const response = await fetch(
     `https://api.dev.goodmorningitalia.it/auth?utm_referral=${widgetId}&utm_source=gmi&utm_campaign=${campaign}&utm_name=${nameOfHost}`,
     {
@@ -171,6 +172,7 @@ async function handleButton(nameOption, surnameOption, couponOption, idOfWidget 
     });
   if (apiResp && apiResp.toLowerCase() === "success") {
     document.getElementById("first-modal").style.display = "none";
+    document.getElementById("second-modal").style.display = "block";
     document.getElementById("second-modal").innerHTML = `<h2>Controlla la tua email</h2>
     <p>Completa la registrazione verificando il tuo profilo dalla email che ti abbiamo inviato a  <b>${email}</b>.</p>
     <p>Non hai ricevuto l’email? Inviala di nuovo o <a href="javascript:updateEmail();" ><b>Aggiorna il tuo indirizzo email</b></a></p>
